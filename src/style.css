@@ -7,7 +7,62 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
 
+@keyframes svgGrad {
+  0% {
+    fill: #765af8;
+  }
+  25% {
+    fill: #b843ea;
+  }
+  50% {
+    fill: #fd318e;
+  }
+  75% {
+    fill: #b843ea;
+  }
+  100% {
+    fill: #765af8;
+  }
+}
+
+
+@-webkit-keyframes gradientChange {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
+}
+@-moz-keyframes Animation {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
+}
+@keyframes Animation {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
+}
 
 @font-face {
   font-family: "Raleway";

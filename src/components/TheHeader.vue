@@ -37,6 +37,10 @@
       rgba(109, 116, 237, 0.2) 100%
     );
     filter: blur(75px);
+    background-size: 200% 200%;
+    -webkit-animation: gradientChange 10s ease infinite;
+    -moz-animation: gradientChange 10s ease infinite;
+    animation: gradientChange 10s ease infinite;
   }
 }
 </style>

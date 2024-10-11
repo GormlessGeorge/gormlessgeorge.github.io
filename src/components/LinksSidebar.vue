@@ -40,45 +40,39 @@
   <script>
 </script>
   <style scoped lang="scss">
-ul {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
+nav {
   top: 50%;
+  left: 40px;
+  position: fixed;
   transform: translateY(-50%);
-  gap: 40px;
-  li {
-    cursor: pointer;
-    transition: all 0.8s linear;
-    list-style: none;
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 
-    //   svg {
-    //     path {
-    //       transition: all 0.8s linear;
-    //     //   fill: url(#my-cool-gradient);
-    //       stop-color: green;
-    //     }
-    //   }
-    //   stop {
-    //     transition: stop-color 0.8s linear;
-    //   }
-  }
-  .gradient {
-    fill: url("#gradient-example");
-  }
-  .gradient ~ defs stop {
-    transition: 0.5s;
-  }
+    li {
+      cursor: pointer;
+      transition: all 0.8s linear;
+      list-style: none;
+    }
+    .gradient {
+      fill: url("#gradient-example");
+    }
+    .gradient ~ defs stop {
+      transition: 0.5s;
+    }
 
-  .gradient:hover ~ defs stop:first-child {
-    stop-color: #765af8;
-  }
-  .gradient:hover ~ defs stop:nth-child(2) {
-    stop-color: #b843ea;
-  }
+    .gradient:hover ~ defs stop:first-child {
+      stop-color: #765af8;
+    }
+    .gradient:hover ~ defs stop:nth-child(2) {
+      stop-color: #b843ea;
+    }
 
-  .gradient:hover ~ defs stop:last-child {
-    stop-color: #fd318e;
+    .gradient:hover ~ defs stop:last-child {
+      stop-color: #fd318e;
+    }
   }
 }
 </style>
