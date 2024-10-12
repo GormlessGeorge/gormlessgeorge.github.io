@@ -1,4 +1,6 @@
 <template>
+  <!-- <p>{{ store.getCounter }}</p>
+  <button @click="store.increment">INCREMENT</button> -->
   <div class="scroll_container">
     <VerticalNavBar></VerticalNavBar>
     <LinksSidebar></LinksSidebar>
@@ -16,9 +18,16 @@ import VerticalNavBar from "./components/VerticalNavBar.vue";
 import HeroScreen from "./components/sections/HeroScreen.vue";
 import StackScreen from "./components/sections/StackScreen.vue";
 import ContactsScreen from "./components/sections/ContactsScreen.vue";
+
+// import {useCounterStore } from '../src/store/store.ts';
+
+// const store = useCounterStore();
 </script>
 
 <style scoped lang="scss">
+p {
+  color: white;
+}
 .scroll_container {
   width: 100%;
   height: 100vh;

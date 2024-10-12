@@ -113,6 +113,7 @@ function handleMessageBlur(event) {
     flex-direction: column;
   }
   &__light {
+    z-index: -5;
     position: absolute;
     border-radius: 100%;
     width: 500px;
@@ -140,10 +141,11 @@ function handleMessageBlur(event) {
     font-weight: 700;
 
     span {
-      background: linear-gradient(90deg, #765af8 0%, #b843ea 50%, #fd318e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% 200%;
+      // background: linear-gradient(90deg, #765af8 0%, #b843ea 50%, #fd318e 100%);
+      color: #b843ea;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      // background-size: 200% 200%;
       -webkit-animation: gradientChange 10s ease infinite;
       -moz-animation: gradientChange 10s ease infinite;
       animation: gradientChange 10s ease infinite;
@@ -154,9 +156,9 @@ function handleMessageBlur(event) {
 
   svg {
     path {
-      fill: #fd318e;
-      animation: svgGrad 10s ease 0s infinite;
-      animation-direction: reverse;
+      fill:#b843ea;
+      // animation: svgGrad 10s ease 0s infinite;
+      // animation-direction: reverse;
     }
   }
 
@@ -189,7 +191,7 @@ function handleMessageBlur(event) {
     color: white;
     position: absolute;
     top: 10px;
-
+    cursor: text;
     &_active {
       font-size: 14px;
       transition: all 1s;
