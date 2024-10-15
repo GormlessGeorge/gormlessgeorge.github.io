@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero section" id="hero">
     <TheHeader></TheHeader>
     <TheContainer>
       <div class="hero__main">
@@ -18,7 +18,8 @@
         </div>
 
         <div class="hero__photo">
-          <img src="../../assets/img/retard.jpg" alt="dev_photo" />
+          <!-- <img src="../../assets/img/retard.jpg" alt="dev_photo" /> -->
+          <img src="@/assets/img/retard.jpg" alt="dev_photo" />
           <svg class="ornament1" width="88" height="97" viewBox="0 0 88 97" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.3">
@@ -838,9 +839,9 @@ import TheHeader from "../TheHeader.vue";
 .hero {
   width: 100%;
   height: 100vh;
-  scroll-snap-align: start;
-  overflow: auto;
-  scroll-behavior: smooth;
+  // scroll-snap-align: start;
+  // overflow: auto;
+  // scroll-behavior: smooth;
 
   &__main {
     display: flex;

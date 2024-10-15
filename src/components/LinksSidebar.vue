@@ -77,7 +77,7 @@ nav {
 }
 </style>
 
-background: linear-gradient(90deg, #765af8 0%, #b843ea 50%, #fd318e 100%);
+
 
 
   

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <a class="header__logo" href="">GG</a>
+    <a class="header__logo" href="/">GG</a>
     <div class="header__light"></div>
   </header>
 </template>

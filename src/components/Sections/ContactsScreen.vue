@@ -1,5 +1,5 @@
 <template>
-  <section class="contacts">
+  <section class="contacts section" id="contacts">
     <TheContainer>
       <div class="contacts__wrapper">
         <div class="contacts__upper">
@@ -57,6 +57,11 @@
           <TheButton>Send</TheButton>
         </form>
       </div>
+
+      <footer>
+        <p>Design available at <a href="/">Figma</a></p>
+        <p>Built with <span>Vue3</span></p>
+      </footer>
     </TheContainer>
   </section>
 </template>
@@ -101,10 +106,12 @@ function handleMessageBlur(event) {
 
 <style scoped lang="scss">
 .contacts {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   overflow: auto;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 
   &__wrapper {
     position: relative;
@@ -112,24 +119,24 @@ function handleMessageBlur(event) {
     display: flex;
     flex-direction: column;
   }
+
   &__light {
     z-index: -5;
     position: absolute;
     border-radius: 100%;
     width: 500px;
     height: 500px;
-    background: linear-gradient(
-      0deg,
-      rgba(148, 84, 233, 0.2) 0%,
-      rgba(130, 100, 235, 0.2) 50%,
-      rgba(109, 116, 237, 0.2) 100%
-    );
+    background: linear-gradient(0deg,
+        rgba(148, 84, 233, 0.2) 0%,
+        rgba(130, 100, 235, 0.2) 50%,
+        rgba(109, 116, 237, 0.2) 100%);
     filter: blur(75px);
     background-size: 200% 200%;
     -webkit-animation: gradientChange 10s ease infinite;
     -moz-animation: gradientChange 10s ease infinite;
     animation: gradientChange 10s ease infinite;
   }
+
   &__upper {
     display: flex;
     gap: 20px;
@@ -156,7 +163,7 @@ function handleMessageBlur(event) {
 
   svg {
     path {
-      fill:#b843ea;
+      fill: #b843ea;
       // animation: svgGrad 10s ease 0s infinite;
       // animation-direction: reverse;
     }
@@ -172,6 +179,7 @@ function handleMessageBlur(event) {
 
     input {
       height: 100%;
+      width: 100%;
       transition: all 1s;
       color: white;
       background-color: transparent;
@@ -192,6 +200,7 @@ function handleMessageBlur(event) {
     position: absolute;
     top: 10px;
     cursor: text;
+
     &_active {
       font-size: 14px;
       transition: all 1s;
@@ -231,6 +240,34 @@ function handleMessageBlur(event) {
         outline: none;
         border-bottom: solid 1px #b843ea;
       }
+    }
+  }
+}
+
+footer {
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+  bottom: 0;
+  p {
+    display: block;
+    color:white;
+    text-align: center;
+    font-size: 12px;
+    &:nth-child(2) {
+      margin: 10px 0;
+    }
+    a {
+      color:white;
+      transition: all 0.5s;
+      &:hover {
+        transition: all 0.5s;
+        font-weight: 500;
+        color:#b843ea;
+      }
+    }
+    span {
+      color:#03E935;
     }
   }
 }
