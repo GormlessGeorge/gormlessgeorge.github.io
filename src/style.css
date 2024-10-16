@@ -6,66 +6,197 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html { scroll-behavior: smooth; }
 
-h1,h2,h3,h4,h5,h6 {
+.color-js {
+  --primary-color: #F7DF1E;
+  --button-text-color: #000812;
+  --hover-color: rgba(247, 223, 30, 0.3);
+  --light-color: rgba(247, 223, 30, 0.2)
+}
+
+.color-ts {
+  --primary-color: #3178C6;
+  --button-text-color: white;
+  --hover-color: rgba(49, 120, 198, 0.3);
+  --light-color: rgba(49, 120, 198, 0.2)
+}
+
+.color-vue {
+  --primary-color: #42B785;
+  --button-text-color: white;
+  --hover-color: rgba(66, 183, 133, 0.3);
+  --light-color: rgba(66, 183, 133, 0.1)
+}
+
+.color-html {
+  --primary-color: #E44D26;
+  --button-text-color: white;
+  --hover-color: rgba(228, 77, 38, 0.3);
+  --light-color: rgba(228, 77, 38, 0.2);
+}
+
+.color-css {
+  --primary-color: #264DE4;
+  --button-text-color: white;
+  --hover-color: rgba(38, 77, 228, 0.3);
+  --light-color: rgba(38, 77, 228, 0.2);
+}
+
+.color-sass {
+  --primary-color: #CD6799;
+  --button-text-color: white;
+  --hover-color: rgba(205, 103, 153, 0.3);
+  --light-color: rgba(205, 103, 153, 0.2);
+}
+
+.color-inertia {
+  --primary-color: #7E66EC;
+  --button-text-color: white;
+  --hover-color: rgba(126, 102, 236, 0.3);
+  --light-color: rgba(126, 102, 236, 0.2);
+}
+
+.color-vite {
+  --primary-color: #A751FF;
+  --button-text-color: white;
+  --hover-color: rgba(167, 81, 255, 0.3);
+  --light-color: rgba(167, 81, 255, 0.2);
+}
+
+.color-java {
+  --primary-color: #3174B9;
+  --button-text-color: white;
+  --hover-color: rgba(49, 116, 185, 0.3);
+  --light-color: rgba(49, 116, 185, 0.2);
+}
+
+.color-kotlin {
+  --primary-color: #DD6E6A;
+  --button-text-color: white;
+  --hover-color: rgba(221, 110, 106, 0.3);
+  --light-color: rgba(221, 110, 106, 0.2);
+}
+
+.color-php {
+  --primary-color: #6E81B6;
+  --button-text-color: white;
+  --hover-color: rgba(110, 129, 182, 0.3);
+  --light-color: rgba(110, 129, 182, 0.2);
+}
+
+.color-laravel {
+  --primary-color: #FF2D20;
+  --button-text-color: white;
+  --hover-color: rgba(255, 45, 32, 0.3);
+  --light-color: rgba(255, 45, 32, 0.2);
+}
+
+.color-mysql {
+  --primary-color: #F8981D;
+  --button-text-color: white;
+  --hover-color: rgba(248, 152, 29, 0.3);
+  --light-color: rgba(248, 152, 29, 0.2);
+}
+
+.color-postgres {
+  --primary-color: #336791;
+  --button-text-color: white;
+  --hover-color: rgba(51, 103, 145, 0.3);
+  --light-color: rgba(51, 103, 145, 0.2);
+}
+
+.color-rabbit {
+  --primary-color: #FF6600;
+  --button-text-color: white;
+  --hover-color: rgba(255, 102, 0, 0.3);
+  --light-color: rgba(255, 102, 0, 0.2);
+}
+
+.color-redis {
+  --primary-color: #C6302B;
+  --button-text-color: white;
+  --hover-color: rgba(198, 48, 43, 0.3);
+  --light-color: rgba(198, 48, 43, 0.2);
+}
+
+.color-figma {
+  --primary-color: #A259FF;
+  --button-text-color: white;
+  --hover-color: rgba(162, 89, 255, 0.3);
+  --light-color: rgba(162, 89, 255, 0.2);
+}
+
+.color-ps {
+  --primary-color: #31A8FF;
+  --button-text-color: white;
+  --hover-color: rgba(49, 168, 255, 0.3);
+  --light-color: rgba(49, 168, 255, 0.2);
+}
+
+.color-gpt {
+  --primary-color: #14B38B;
+  --button-text-color: white;
+  --hover-color: rgba(20, 179, 139, 0.3);
+  --light-color: rgba(20, 179, 139, 0.2);
+
+}
+
+.color-ij {
+  --primary-color: #FE315D;
+  --button-text-color: white;
+  --hover-color: rgba(254, 49, 93, 0.3);
+  --light-color: rgba(254, 49, 93, 0.2);
+
+}
+
+.color-vscode {
+  --primary-color: #23A8F2;
+  --button-text-color: white;
+  --hover-color: rgba(35, 168, 242, 0.3);
+  --light-color: rgba(35, 168, 242, 0.2);
+
+}
+
+.color-phpstorm {
+  --primary-color: #9E4DF3;
+  --button-text-color: white;
+  --hover-color: rgba(158, 77, 243, 0.3);
+  --light-color: rgba(158, 77, 243, 0.2);
+
+}
+
+.color-git {
+  --primary-color: #F05133;
+  --button-text-color: white;
+  --hover-color: rgba(240, 81, 51, 0.3);
+  --light-color: rgba(240, 81, 51, 0.2);
+
+}
+
+.color-postman {
+  --primary-color: #FF6C37;
+  --button-text-color: white;
+  --hover-color: rgba(255, 108, 55, 0.3);
+  --light-color: rgba(255, 108, 55, 0.2);
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
+
 p {
   margin: 0;
 }
-@keyframes svgGrad {
-  0% {
-    fill: #765af8;
-  }
-  25% {
-    fill: #b843ea;
-  }
-  50% {
-    fill: #fd318e;
-  }
-  75% {
-    fill: #b843ea;
-  }
-  100% {
-    fill: #765af8;
-  }
-}
 
-
-@-webkit-keyframes gradientChange {
-  0% {
-    background-position: 10% 0%;
-  }
-  50% {
-    background-position: 91% 100%;
-  }
-  100% {
-    background-position: 10% 0%;
-  }
-}
-@-moz-keyframes Animation {
-  0% {
-    background-position: 10% 0%;
-  }
-  50% {
-    background-position: 91% 100%;
-  }
-  100% {
-    background-position: 10% 0%;
-  }
-}
-@keyframes Animation {
-  0% {
-    background-position: 10% 0%;
-  }
-  50% {
-    background-position: 91% 100%;
-  }
-  100% {
-    background-position: 10% 0%;
-  }
-}
 
 @font-face {
   font-family: "Raleway";
@@ -94,4 +225,3 @@ p {
   font-weight: 700;
   font-style: normal;
 }
-

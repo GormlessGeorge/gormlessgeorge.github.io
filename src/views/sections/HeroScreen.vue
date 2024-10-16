@@ -1,5 +1,5 @@
 <template>
-  <section class="hero section" id="hero">
+  <section class="hero" id="hero">
     <TheHeader></TheHeader>
     <TheContainer>
       <div class="hero__main">
@@ -17,8 +17,7 @@
           <TheButton>Contact me</TheButton>
         </div>
 
-        <div class="hero__photo">
-          <!-- <img src="../../assets/img/retard.jpg" alt="dev_photo" /> -->
+        <div :class="store.currentColorClass" class="hero__photo">
           <img src="@/assets/img/retard.jpg" alt="dev_photo" />
           <svg class="ornament1" width="88" height="97" viewBox="0 0 88 97" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -833,15 +832,15 @@
 
 <script setup lang="ts">
 import TheHeader from "../TheHeader.vue";
+import { usePortfolioStore } from '../../store/portfolio-store';
+
+const store = usePortfolioStore();
 </script>
 
 <style scoped lang="scss">
 .hero {
   width: 100%;
   height: 100vh;
-  // scroll-snap-align: start;
-  // overflow: auto;
-  // scroll-behavior: smooth;
 
   &__main {
     display: flex;
@@ -884,12 +883,8 @@ import TheHeader from "../TheHeader.vue";
     align-items: center;
     height: 395px;
     width: 395px;
-    background: linear-gradient(90deg, #765af8 0%, #b843ea 50%, #fd318e 100%);
-    box-shadow: 3px 4px 12px 0 rgba(184, 67, 234, 0.3);
-    background-size: 200% 200%;
-    -webkit-animation: gradientChange 10s ease infinite;
-    -moz-animation: gradientChange 10s ease infinite;
-    animation: gradientChange 10s ease infinite;
+    background-color: var(--primary-color);
+    box-shadow: 3px 4px 12px 0 var(--hover-color);
 
     &-inner {
       width: 99%;
@@ -915,9 +910,7 @@ import TheHeader from "../TheHeader.vue";
       z-index: 10;
 
       path {
-        fill: #fd318e;
-        animation: svgGrad 10s ease 0s infinite;
-        animation-direction: reverse;
+        fill: var(--primary-color);
       }
     }
 
@@ -929,28 +922,6 @@ import TheHeader from "../TheHeader.vue";
     .ornament2 {
       right: -6.5%;
       top: 92%;
-    }
-
-    @keyframes svgGrad {
-      0% {
-        fill: #765af8;
-      }
-
-      25% {
-        fill: #b843ea;
-      }
-
-      50% {
-        fill: #fd318e;
-      }
-
-      75% {
-        fill: #b843ea;
-      }
-
-      100% {
-        fill: #765af8;
-      }
     }
   }
 }
