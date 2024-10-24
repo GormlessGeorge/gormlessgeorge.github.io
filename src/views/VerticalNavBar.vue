@@ -3,8 +3,6 @@
     <ul>
       <li v-for="(offset, index) in offsets" :key="index" @click="scrollToSection(index)"
         :class="{ active: activeSection === index, [store.currentColorClass]: true }">
-        <span :title="'Go to section ' + (index + 1)">
-        </span>
       </li>
     </ul>
   </nav>
@@ -39,20 +37,14 @@ nav {
 
   li {
     cursor: pointer;
-    transition: all 0.6s linear;
+    transition: all 0.6s ease;
     transform: rotate(45deg);
     height: 12px;
     width: 12px;
-    border: solid 3px white;
+    border: solid 3px var(--text-color);
     list-style: none;
-
-
-    span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      z-index: 150;
-      scroll-behavior: smooth;
+    &:hover {
+      background: var(--primary-color);
     }
   }
 }
@@ -60,7 +52,7 @@ nav {
 .active {
   transform: rotate(90deg);
   transform: scale(1.3);
-  transition: all 0.6s linear;
+  transition: all 0.6s ease;
   border: none;
   background: var(--primary-color);
   box-shadow: 0px 0px 35px 5px var(--primary-color);

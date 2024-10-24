@@ -133,11 +133,12 @@ function handleMessageBlur(event: FocusEvent): void {
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: auto;
-
+  overflow: hidden;
+  display: flex;
+  align-items: center;
   &__wrapper {
     position: relative;
-    margin-top: 25vh;
+    // margin-top: 25vh;
     display: flex;
     flex-direction: column;
   }
@@ -159,7 +160,7 @@ function handleMessageBlur(event: FocusEvent): void {
   }
 
   &__title {
-    color: white;
+    color: var(--text-color);
     font-size: 48px;
     font-weight: 700;
 
@@ -188,10 +189,10 @@ function handleMessageBlur(event: FocusEvent): void {
       height: 100%;
       width: 100%;
       transition: all 1s;
-      color: white;
+      color: var(--text-color);
       background-color: transparent;
       border: none;
-      border-bottom: solid 1px white;
+      border-bottom: solid 1px var(--text-color);
 
       &:focus {
         transition: all 1s;
@@ -203,7 +204,7 @@ function handleMessageBlur(event: FocusEvent): void {
 
   &__label {
     transition: all 1s;
-    color: white;
+    color: var(--text-color);
     position: absolute;
     top: 10px;
     cursor: text;
@@ -238,10 +239,10 @@ function handleMessageBlur(event: FocusEvent): void {
       width: 100%;
       height: 100%;
       transition: all 1s;
-      color: white;
+      color: var(--text-color);
       background-color: transparent;
       border: none;
-      border-bottom: solid 1px white;
+      border-bottom: solid 1px var(--text-color);
 
       &:focus {
         transition: all 1s;
@@ -259,10 +260,28 @@ function handleMessageBlur(event: FocusEvent): void {
   bottom: 0;
   fill: var(--primary-color);
   path {
-    fill-opacity: 0.030;
+    fill-opacity: 0.10;
+    &:first-child {
+      animation: wave3 5s ease-in-out 0s infinite alternate;
+    }
+    &:nth-child(2) {
+      animation: wave3 4s ease-in-out 0s infinite alternate;
+    }
+    &:nth-child(3) {
+      animation: wave3 3s ease-in-out 0s infinite alternate;
+      // transform: translateY(10px);
+    }
   }
 }
 
+@keyframes wave3 {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 footer {
   width: 100%;
   left: 50%;
@@ -271,8 +290,9 @@ footer {
   bottom: 0;
 
   p {
+    line-height: unset;
     display: block;
-    color: white;
+    color: var(--text-color);
     text-align: center;
     font-size: 12px;
 
@@ -281,7 +301,7 @@ footer {
     }
 
     a {
-      color: white;
+      color: var(--text-color);
       transition: all 0.5s;
 
       &:hover {
@@ -292,9 +312,9 @@ footer {
     }
 
     span {
-      color: #03E935;
+      color: #06ac2a;
       &:nth-child(2) {
-        color:yellow;
+        color:rgb(252, 252, 2);
       }
     }
   }

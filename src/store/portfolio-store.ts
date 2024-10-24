@@ -1,11 +1,14 @@
 import { defineStore } from "pinia";
-
 export const usePortfolioStore = defineStore("counter", {
-  state: () => ({ activeSection: 0, currentColorClass: 'color-laravel' }),
+  state: () => ({ isDarkTheme: true, activeSection: 0, currentColorClass: 'color-vite' }),
   getters: {
 
   },
   actions: {
+    toggleTheme() {
+      this.isDarkTheme = !this.isDarkTheme
+    },
+
     moveUp() {
       this.activeSection++;
     },
@@ -82,8 +85,8 @@ export const usePortfolioStore = defineStore("counter", {
     applyPsColor() {
       this.currentColorClass = 'color-ps'
     },
-    applyGptColor() {
-      this.currentColorClass = 'color-gpt'
+    applyWebstormColor() {
+      this.currentColorClass = 'color-webstorm'
     },
     applyIjColor() {
       this.currentColorClass = 'color-ij'

@@ -20,13 +20,16 @@ import { storeToRefs } from 'pinia'
 const store = usePortfolioStore();
 
 const inMove = ref(false);
-const inMoveDelay = ref(800);
+const inMoveDelay = ref(400);
 
 const { activeSection } = storeToRefs(store);
+// const  activeSection  = ref(0);
 const offsets = ref([]);
 const touchStartY = ref(0);
 
-
+onMounted(() => {
+  document.documentElement.setAttribute('data-theme', store.isDarkTheme ? 'dark' : 'light');
+});
 
 const calculateSectionOffsets = () => {
   let sections = document.getElementsByTagName('section');
@@ -38,9 +41,9 @@ const calculateSectionOffsets = () => {
 };
 
 const handleMouseWheel = (e) => {
-  if (e.wheelDelta < 30 && !inMove.value) {
+  if (e.wheelDelta < 0 && !inMove.value) {
     moveUp();
-  } else if (e.wheelDelta > 30 && !inMove.value) {
+  } else if (e.wheelDelta > 0 && !inMove.value) {
     moveDown();
   }
   e.preventDefault();

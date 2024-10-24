@@ -82,7 +82,7 @@ div {
 
       path {
         transition: all 1s;
-        fill: white;
+        fill: var(--text-color);
       }
     }
   }
