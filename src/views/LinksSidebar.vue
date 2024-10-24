@@ -82,7 +82,11 @@ div {
 
       path {
         transition: all 1s;
+<<<<<<< HEAD
         fill: var(--text-color);
+=======
+        fill: white;
+>>>>>>> 12bd3b50cfa8cea9a29099f1569d67e2cbb123ff
       }
     }
   }
