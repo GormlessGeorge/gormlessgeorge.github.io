@@ -1,7 +1,7 @@
 <template>
   <VerticalNavBar :offsets="offsets" :activeSection="activeSection" :scrollToSection="scrollToSection" />
   <LinksSidebar />
-  <HeroScreen class="fullpage"></HeroScreen>
+  <MainScreen class="fullpage"></MainScreen>
   <StackScreen class="fullpage"></StackScreen>
   <ProjectsScreen class="fullpage"></ProjectsScreen>
   <ContactsScreen class="fullpage"></ContactsScreen>
@@ -11,7 +11,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import LinksSidebar from "./views/LinksSidebar.vue";
 import VerticalNavBar from "./views/VerticalNavBar.vue";
-import HeroScreen from "./views/sections/HeroScreen.vue";
+import MainScreen from "./views/sections/MainScreen.vue";
 import StackScreen from "./views/sections/StackScreen.vue";
 import ProjectsScreen from './views/sections/ProjectsScreen.vue';
 import ContactsScreen from "./views/sections/ContactsScreen.vue";
@@ -108,15 +108,15 @@ onMounted(() => {
   calculateSectionOffsets();
   window.addEventListener('DOMMouseScroll', handleMouseWheelDOM); // Mozilla Firefox
   window.addEventListener('mousewheel', handleMouseWheel, { passive: false }); // Other browsers
-  window.addEventListener('touchstart', touchStart, { passive: false }); // mobile devices
-  window.addEventListener('touchmove', touchMove, { passive: false }); // mobile devices
+  // window.addEventListener('touchstart', touchStart, { passive: false }); // mobile devices
+  // window.addEventListener('touchmove', touchMove, { passive: false }); // mobile devices
 });
 
 onUnmounted(() => {
   window.removeEventListener('DOMMouseScroll', handleMouseWheelDOM); // Mozilla Firefox
   window.removeEventListener('mousewheel', handleMouseWheel, { passive: false }); // Other browsers
-  window.removeEventListener('touchstart', touchStart); // mobile devices
-  window.removeEventListener('touchmove', touchMove); // mobile devices
+  // window.removeEventListener('touchstart', touchStart); // mobile devices
+  // window.removeEventListener('touchmove', touchMove); // mobile devices
 });
 </script>
 

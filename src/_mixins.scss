@@ -1,0 +1,37 @@
+// $sizes: (
+//     "xs": 320px,
+//     "sm": 576px,
+//     "md": 768px,
+//     "lg": 992px,
+//     "xl": 1200px
+// );
+
+// @mixin media($minmax, $media) {
+//     @each $size, $resolution in $sizes {
+//         @if $media == $size {
+//             @media only screen and (#{$minmax}-width: $resolution) {
+//                 @content;
+//             }
+//         }
+//     }
+// }
+@mixin desktop-adp {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+@mixin tablet-landscape-adp {
+    @media (max-width: 992px) {
+        @content;
+    }
+}
+@mixin tablet-adp {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+@mixin phone-adp {
+    @media (max-width: 576px) {
+        @content;
+    }
+}

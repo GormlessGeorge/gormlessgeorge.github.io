@@ -9,8 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@jambonn/vue-concise-carousel": "^2.1.31",
-    "@splidejs/vue-splide": "^0.6.12",
     "normalize.css": "^8.0.1",
     "pinia": "^2.2.4",
     "pinia-plugin-persistedstate": "^4.1.1",

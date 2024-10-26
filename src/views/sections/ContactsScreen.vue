@@ -36,36 +36,38 @@
           </svg>
         </div>
         <div :class="store.currentColorClass" class="contacts__light"></div>
-        <form class="contacts__form">
+        <form class="contacts__form" @submit.prevent="submitForm">
           <div class="contacts__name">
             <label class="contacts__label"
               :class="{ contacts__label_active: isNameActive, [store.currentColorClass]: true }" for="name">Your
               name</label>
-            <input :class="store.currentColorClass" id="name" name="name" type="text" @focus="handleNameFocus"
-              @blur="handleNameBlur" />
+            <input required v-model="name" :class="store.currentColorClass" id="name" name="name" type="text"
+              @focus="handleNameFocus" @blur="handleNameBlur" />
           </div>
 
           <div class="contacts__mail">
             <label class="contacts__label"
               :class="{ contacts__label_active: isMailActive, [store.currentColorClass]: true }" for="mail">Your
               mail</label>
-            <input :class="store.currentColorClass" id="mail" name="mail" type="text" @focus="handleMailFocus"
-              @blur="handleMailBlur" />
+            <input required v-model="email" :class="store.currentColorClass" id="mail" name="mail" type="text"
+              @focus="handleMailFocus" @blur="handleMailBlur" />
           </div>
 
           <div class="contacts__message">
             <label class="contacts__label"
               :class="{ contacts__label_active: isMessageActive, [store.currentColorClass]: true }"
               for="message">Message</label>
-            <textarea :class="store.currentColorClass" id="message" name="message" @focus="handleMessageFocus"
-              @blur="handleMessageBlur"></textarea>
+            <textarea v-model="message" :class="store.currentColorClass" id="message" name="message"
+              @focus="handleMessageFocus" @blur="handleMessageBlur"></textarea>
           </div>
 
-          <TheButton>Send</TheButton>
+          <TheButton :disabled="isDisabled">Send</TheButton>
+          <p v-if="success" class="contacts__form-action">Message sent thx</p>
         </form>
       </div>
 
-      <svg :class="store.currentColorClass" class="waves" width="1920" height="464" viewBox="0 0 1920 464" fill="#3178C6" xmlns="http://www.w3.org/2000/svg">
+      <svg :class="store.currentColorClass" class="waves" width="1920" height="464" viewBox="0 0 1920 464"
+        fill="#3178C6" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M-108 83.6843C-32.2229 69.2353 43.5542 54.7829 119.335 38.6816C195.112 22.5769 270.889 4.82334 346.666 19.3938C422.443 33.9642 498.221 80.8619 574.001 90.1147C649.778 99.3674 725.555 70.9786 801.333 64.3965C877.11 57.8143 952.89 73.0422 1028.67 57.9694C1104.44 42.8966 1180.22 -2.47703 1256 0.10592C1331.78 2.6855 1407.56 53.2216 1483.33 64.3965C1559.11 75.5713 1634.89 47.3847 1710.67 38.6816C1786.45 29.9785 1862.22 40.7587 1938 51.539V559.453C1862.22 559.453 1786.45 559.453 1710.67 559.453C1634.89 559.453 1559.11 559.453 1483.33 559.453C1407.56 559.453 1331.78 559.453 1256 559.453C1180.22 559.453 1104.44 559.453 1028.67 559.453C952.89 559.453 877.11 559.453 801.333 559.453C725.555 559.453 649.778 559.453 574.001 559.453C498.221 559.453 422.443 559.453 346.666 559.453C270.889 559.453 195.112 559.453 119.335 559.453C43.5542 559.453 -32.2229 559.453 -108 559.453V83.6843Z"
           fill="#3178C6" fill-opacity="0.05" />
@@ -126,6 +128,30 @@ function handleMessageBlur(event: FocusEvent): void {
     isMessageActive.value = false;
   }
 }
+
+
+const name = ref('');
+const email = ref('');
+const message = ref('');
+const success = ref(false);
+const isDisabled = ref(false);
+const submitForm = async () => {
+  const response = await fetch('../../../php/formSubmit.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    }),
+  });
+
+  success.value = true;
+  isDisabled.value = true
+
+}
 </script>
 
 <style scoped lang="scss">
@@ -136,6 +162,7 @@ function handleMessageBlur(event: FocusEvent): void {
   overflow: hidden;
   display: flex;
   align-items: center;
+
   &__wrapper {
     position: relative;
     // margin-top: 25vh;
@@ -259,29 +286,35 @@ function handleMessageBlur(event: FocusEvent): void {
   left: 0;
   bottom: 0;
   fill: var(--primary-color);
+
   path {
     fill-opacity: 0.10;
+
     &:first-child {
-      animation: wave3 5s ease-in-out 0s infinite alternate;
+      animation: wave 5s ease-in-out 0s infinite alternate;
     }
+
     &:nth-child(2) {
-      animation: wave3 4s ease-in-out 0s infinite alternate;
+      animation: wave 4s ease-in-out 0s infinite alternate;
     }
+
     &:nth-child(3) {
-      animation: wave3 3s ease-in-out 0s infinite alternate;
+      animation: wave 3s ease-in-out 0s infinite alternate;
       // transform: translateY(10px);
     }
   }
 }
 
-@keyframes wave3 {
+@keyframes wave {
   0% {
     transform: translateY(10px);
   }
+
   100% {
     transform: translateY(0px);
   }
 }
+
 footer {
   width: 100%;
   left: 50%;
@@ -313,8 +346,9 @@ footer {
 
     span {
       color: #06ac2a;
+
       &:nth-child(2) {
-        color:rgb(252, 252, 2);
+        color: rgb(252, 252, 2);
       }
     }
   }

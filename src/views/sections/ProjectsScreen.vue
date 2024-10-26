@@ -36,13 +36,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { usePortfolioStore } from '../../store/portfolio-store';
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
 const store = usePortfolioStore();
-
-
-
-
 
 </script>
 
