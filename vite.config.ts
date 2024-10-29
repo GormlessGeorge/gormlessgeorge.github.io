@@ -10,11 +10,11 @@ export default defineConfig({
     postcss: {
       plugins: [
         autoprefixer,
-        pxtorom({
-          rootValue: 16,
-          propList: ['*'],
-          atRules: ['media'],
-        }),
+        // pxtorom({
+        //   rootValue: 16,
+        //   propList: ['*'],
+        //   atRules: ['media'],
+        // }),
       ],
     },
     preprocessorOptions: {
@@ -31,3 +31,8 @@ export default defineConfig({
     ]
   },
 });
+
+// @import "./src/styles/_animations.scss";
+// @import "./src/styles/_variables.scss";
+// @import "./src/styles/_mixins.scss";
+// @import "./src/styles/_helpers.scss";

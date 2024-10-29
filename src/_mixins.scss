@@ -31,17 +31,10 @@
     }
     @include phone-adp {
         font-size: 26px;
-    }
+      }
     span {
         transition: all 1s;
         color: var(--primary-color);
         text-shadow: 5px 5px 20px var(--hover-color);
-    }
-}
-
-@mixin text-lh {
-    line-height: 35px;
-    @include phone-adp {
-        line-height: 28px;
     }
 }

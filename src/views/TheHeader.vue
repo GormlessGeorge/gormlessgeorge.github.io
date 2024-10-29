@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { usePortfolioStore } from '../store/portfolio-store';
+import { onMounted } from 'vue';
 const store = usePortfolioStore();
 
 const toggleTheme = () => {
@@ -69,8 +70,6 @@ const toggleTheme = () => {
 
     @include phone-adp {
       width: 320px;
-      top: -245px;
-      filter: blur(30px);
     }
   }
 
@@ -80,7 +79,6 @@ const toggleTheme = () => {
     margin-right: 35px;
     width: 34px;
     height: 34px;
-    z-index: 50;
 
     @include phone-adp {
       margin-top: 25px;

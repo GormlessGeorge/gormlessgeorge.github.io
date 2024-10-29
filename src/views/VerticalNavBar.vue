@@ -27,9 +27,6 @@ nav {
   top: 50%;
   right: 40px;
   transform: translateY(-50%);
-  @include phone-adp {
-    display: none;
-  }
 
   ul {
     padding: 0;

@@ -122,15 +122,12 @@
           <div :class="store.currentColorClass" class="stack__light"></div>
           <div class="stack__title-wrapper">
             <h2 :class="store.currentColorClass" class="stack__title">Tech <span>stack</span></h2>
-            <div class="stack__title-icon">
-              <svg :class="store.currentColorClass" width="31" height="33" viewBox="0 0 31 33" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M30.866 10.706L15.5 0.185791L0.134033 10.706L15.5 21.2251L30.866 10.706ZM15.5 23.5724L1.93656 14.6292L0.134033 16.5L15.5 27.019L30.866 16.5L29.0391 14.589L15.5 23.5724ZM15.5 29.3688L1.93656 20.4256L0.134033 22.2964L15.5 32.8154L30.866 22.2964L29.0391 20.3854L15.5 29.3688Z"
-                  fill="#F53399" />
-              </svg>
-            </div>
-
+            <svg :class="store.currentColorClass" width="31" height="33" viewBox="0 0 31 33" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M30.866 10.706L15.5 0.185791L0.134033 10.706L15.5 21.2251L30.866 10.706ZM15.5 23.5724L1.93656 14.6292L0.134033 16.5L15.5 27.019L30.866 16.5L29.0391 14.589L15.5 23.5724ZM15.5 29.3688L1.93656 20.4256L0.134033 22.2964L15.5 32.8154L30.866 22.2964L29.0391 20.3854L15.5 29.3688Z"
+                fill="#F53399" />
+            </svg>
 
           </div>
 
@@ -195,7 +192,7 @@ const selectedTab = ref('tab1');
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: auto;
 
   &__main_wrapper {
@@ -373,13 +370,14 @@ const selectedTab = ref('tab1');
   &__title {
     display: block;
     width: fit-content;
+    // margin: 0 auto;
     @include title;
 
     @include desktop-adp {
       margin-top: 10px;
     }
 
-
+    
     &-wrapper {
       display: flex;
       gap: 20px;
@@ -390,35 +388,21 @@ const selectedTab = ref('tab1');
         margin-bottom: 20px;
       }
 
-
-    }
-
-    &-icon {
-      width: 30px;
-      height: 30px;
-
       svg {
-        width: 100%;
-        height: 100%;
-
         path {
           transition: all 1s;
           fill: var(--primary-color);
         }
-      }
 
-      @include desktop-adp {
-        width: 28px;
-      }
+        @include desktop-adp {
+          width: 28px;
+        }
 
-      @include tablet-landscape-adp {
-        width: 26px;
-        margin-top: 5px;
-        align-self: center;
-      }
-
-      @include phone-adp {
-        width: 24px;
+        @include tablet-landscape-adp {
+          width: 26px;
+          margin-top: 5px;
+          align-self: center;
+        }
       }
     }
   }
@@ -440,8 +424,7 @@ const selectedTab = ref('tab1');
     }
 
     @include tablet-landscape-adp {
-      width: 320px;
-      height: 320px;
+      display: none;
     }
 
   }
@@ -452,7 +435,7 @@ const selectedTab = ref('tab1');
     margin: 0 auto;
     margin-top: 40px;
     width: 470px;
-    @include text-lh;
+    line-height: 2.2rem;
     font-weight: 300;
     font-size: 1.25rem;
     color: var(--text-color);
@@ -475,6 +458,7 @@ const selectedTab = ref('tab1');
 
     @include phone-adp {
       font-size: 0.875rem;
+      line-height: 28px;
     }
 
 

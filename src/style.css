@@ -15,31 +15,19 @@
   --stack-icon-bg: rgba(0, 0, 0, 0.1);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
-
 p {
-  margin: 0;
-  transition: all 1s;
+  line-height: 2.2rem;
 }
 
 body {
   transition: background-color 1s, color 1s;
   background-color: var(--background-color);
   color: var(--text-color);
-  overflow: hidden;
 }
 
-@media (max-width: 576px) {
-  body {
-    overflow: unset;
-  }
+
+p {
+  transition: all 1s;
 }
 
 .color-js {
@@ -216,7 +204,21 @@ body {
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
 
 @keyframes slide-up {
   0% {
