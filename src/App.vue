@@ -1,7 +1,7 @@
 <template>
   <VerticalNavBar :offsets="offsets" :activeSection="activeSection" :scrollToSection="scrollToSection" />
   <LinksSidebar />
-  <MainScreen class="fullpage"></MainScreen>
+  <MainScreen :scrollToSection="scrollToSection" class="fullpage"></MainScreen>
   <StackScreen class="fullpage"></StackScreen>
   <ProjectsScreen class="fullpage"></ProjectsScreen>
   <ContactsScreen class="fullpage"></ContactsScreen>

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer';
-
+import pxtorom from '@minko-fe/postcss-pxtorem'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
@@ -9,7 +9,12 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        autoprefixer
+        autoprefixer,
+        // pxtorom({
+        //   rootValue: 16,
+        //   propList: ['*'],
+        //   atRules: ['media'],
+        // }),
       ],
     },
     preprocessorOptions: {
