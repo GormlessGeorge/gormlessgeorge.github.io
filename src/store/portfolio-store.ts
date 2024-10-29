@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 export const usePortfolioStore = defineStore("counter", {
-  state: () => ({ isDarkTheme: true, activeSection: 0, currentColorClass: 'color-vite' }),
+  state: () => ({ isDarkTheme: true, activeSection: 0, currentColorClass: 'color-ij' }),
   getters: {
 
   },

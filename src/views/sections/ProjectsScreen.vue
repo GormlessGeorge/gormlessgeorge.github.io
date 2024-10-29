@@ -1,7 +1,16 @@
 <template>
     <section class="projects" id="projects">
         <TheContainer>
-            <h2 :class="store.currentColorClass" class="projects__title">Latest <span>projects</span></h2>
+            <div class="projects__title-wrapper">
+                <h2 :class="store.currentColorClass" class="projects__title">Latest <span>projects</span></h2>
+                <div class="projects__title-icon">
+                    <svg :class="store.currentColorClass" width="39" height="39" viewBox="0 0 39 39" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.25 32.5V6.5H16.25L19.5 9.75H35.75V32.5H3.25Z" fill="none" />
+                    </svg>
+                </div>
+            </div>
+
 
             <div class="projects__wrapper fade-in" :class="store.currentColorClass" data-fade-in-time="0.6s">
                 <div class="projects__project" :class="store.currentColorClass">
@@ -39,7 +48,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { usePortfolioStore } from '../../store/portfolio-store';
 
 const store = usePortfolioStore();
@@ -50,16 +58,58 @@ const store = usePortfolioStore();
 .projects {
     display: flex;
     align-items: center;
-    height: 100dvh;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
 
     &__title {
         width: fit-content;
         display: block;
-        margin: 0 auto;
-        transform: translateY(-100%);
+
         @include title;
+
+        &-wrapper {
+            transform: translateY(-100%);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            @include phone-adp {
+                gap:10px;
+            }
+        }
+
+        &-icon {
+            width: 39px;
+            height: 39px;
+            align-self: center;
+            margin-top: 5px;
+
+            svg {
+                width: 100%;
+                height: 100%;
+
+                path {
+                    transition: all 1s;
+                    fill: var(--primary-color);
+                }
+            }
+
+            @include desktop-adp {
+                width: 28px;
+            }
+
+            @include tablet-landscape-adp {
+                width: 26px;
+            }
+
+            @include phone-adp {
+                width: 24px;
+                margin-top: 0;
+            }
+        }
+
+
     }
 
     &__wrapper {
@@ -71,6 +121,7 @@ const store = usePortfolioStore();
             flex-direction: column;
             gap: 30px;
         }
+
         @include tablet-landscape-adp {
             gap: 10px;
         }
@@ -101,7 +152,7 @@ const store = usePortfolioStore();
     &__descr {
         font-size: 1.25rem;
         font-weight: 300;
-
+        @include text-lh;
         @include desktop-adp {
             font-size: 1.125rem;
         }
