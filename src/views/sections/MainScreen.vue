@@ -15,7 +15,7 @@
             project uniquely successful and impactful. Let's build something
             amazing together!
           </p>
-          <TheButton>Contact me</TheButton>
+          <TheButton @click="scrollToSection(3)">Contact me</TheButton>
         </div>
 
         <div :class="store.currentColorClass" class="main__photo">
@@ -31,24 +31,38 @@ import TheHeader from "../TheHeader.vue";
 import { usePortfolioStore } from '../../store/portfolio-store';
 
 const store = usePortfolioStore();
+
+const props = defineProps<{
+  scrollToSection: (section: number) => void;
+}>();
 </script>
 
 <style scoped lang="scss">
 .main {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
+
+    @include tablet-landscape-adp {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 20px;
+    }
   }
 
   &__about {
     margin-left: 50px;
     display: flex;
     flex-direction: column;
+
+    @include tablet-landscape-adp {
+      margin-left: 0;
+    }
   }
 
   &__title {
@@ -59,20 +73,19 @@ const store = usePortfolioStore();
     font-weight: 500;
 
     @include desktop-adp {
-      font-size: 1rem;
+      font-size: 1.125rem;
     }
 
     @include tablet-landscape-adp {
-      max-width: 720px;
+      font-size: 1rem;
+      text-align: center;
+
+      br {
+        display: none;
+      }
     }
 
-    @include tablet-adp {
-      max-width: 540px;
-    }
 
-    @include tablet-adp {
-      width: 100%;
-    }
   }
 
   &__text {
@@ -82,21 +95,29 @@ const store = usePortfolioStore();
     font-weight: 300;
     font-size: 1.25rem;
     color: var(--text-color);
+
     @include desktop-adp {
-      font-size: 1rem;
+      font-size: 1.125rem;
     }
 
     @include tablet-landscape-adp {
-      max-width: 720px;
+      font-size: 1rem;
+      text-align: center;
     }
 
-    @include tablet-adp {
-      max-width: 540px;
+    @include phone-adp {
+      font-size: 0.875rem;
+      line-height: 28px;
+      width: 19.5rem;
     }
 
-    @include tablet-adp {
-      width: 100%;
-    }
+    // @include tablet-adp {
+    //   font-size: 0.875rem;
+    // }
+
+    // @include tablet-adp {
+    //   width: 100%;
+    // }
   }
 
   span {
@@ -111,15 +132,26 @@ const store = usePortfolioStore();
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 395px;
-    width: 395px;
-    border: solid 1.5px var(--primary-color);
+    height: 24.6875rem;
+    width: 24.6875rem;
+    border: solid .0938rem var(--primary-color);
     background-color: var(--background-color);
-    box-shadow: 3px 4px 12px 0 var(--hover-color);
+    box-shadow: .1875rem .25rem .75rem 0 var(--hover-color);
+
     @include desktop-adp {
-      height: 295px;
-      width: 295px;
+      height: 320px;
+      width: 320px;
     }
+
+    @include phone-adp {
+      height: 200px;
+      width: 200px;
+    }
+
+    // @include tablet-landscape-adp {
+    //   height: 250px;
+    //   width: 250px;
+    // }
 
     img {
       object-fit: cover;
@@ -130,10 +162,13 @@ const store = usePortfolioStore();
       bottom: 35px;
       right: 35px;
       z-index: 15;
+
+      @include tablet-landscape-adp {
+        position: relative;
+        bottom: 0;
+        right: 0;
+      }
     }
-
-
-
   }
 }
 </style>

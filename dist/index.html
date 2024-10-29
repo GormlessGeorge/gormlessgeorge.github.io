@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue + TS</title>
+    <style>
+      .no-transition * {
+        transition: none;
+      }
+    </style>
+    <script>
+      const isDarkTheme = localStorage.getItem('isDarkTheme') === 'true';
+      document.documentElement.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+      document.documentElement.classList.add('no-transition');
+    </script>
+    <script type="module" crossorigin src="./assets/index-WjUIU5lY.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DQi4PyxW.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.classList.remove('no-transition');
+      });
+    </script>
+  </body>
+</html>

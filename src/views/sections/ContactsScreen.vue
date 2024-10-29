@@ -4,8 +4,8 @@
       <div class="contacts__wrapper">
         <div class="contacts__upper">
           <h2 :class="store.currentColorClass" class="contacts__title">Let's get in <span>touch</span></h2>
-          <svg :class="store.currentColorClass" width="32" height="55" viewBox="0 0 32 55" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+          <svg :class="store.currentColorClass" class="contacts__arrow" width="32" height="55" viewBox="0 0 32 55"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M1.51275 3.02547C0.675468 3.02547 0 2.34299 0 1.51275C0 0.675468 0.682504 0 1.51275 0C2.34299 0 3.02545 0.682504 3.02545 1.51275C3.02545 2.35002 2.35002 3.02547 1.51275 3.02547Z"
               fill="white" />
@@ -36,48 +36,39 @@
           </svg>
         </div>
         <div :class="store.currentColorClass" class="contacts__light"></div>
-        <form class="contacts__form" @submit.prevent="submitForm">
-          <div class="contacts__name">
-            <label class="contacts__label"
-              :class="{ contacts__label_active: isNameActive, [store.currentColorClass]: true }" for="name">Your
-              name</label>
-            <input required v-model="name" :class="store.currentColorClass" id="name" name="name" type="text"
-              @focus="handleNameFocus" @blur="handleNameBlur" />
-          </div>
+        <p class="contacts__descr">Need some help, have an idea, or just want to chat? Don't hesitate to reach out
+          using any of these:</p>
+        <div class="contacts__social">
+          <p class="contacts__link">Email: <a :class="store.currentColorClass"
+              href="mailto:georgekulaev@yandex.ru">georgekulaev@yandex.ru</a></p>
+          <p class="contacts__link">Telegram: <a :class="store.currentColorClass"
+              href="http://t.me/GormlessGeorge">@GormlessGeorge</a></p>
+          <p class="contacts__link">LinkedIn: <a :class="store.currentColorClass"
+              href="https://www.linkedin.com/in/george-kulaev-b41964335/">George Kulaev</a></p>
+          <p class="contacts__link">Github: <a :class="store.currentColorClass"
+              href="https://github.com/GormlessGeorge">GormlessGeorge</a></p>
+          <p class="contacts__link">Habr: <a :class="store.currentColorClass"
+              href="https://habr.com/ru/users/GormlessGeorge/">GormlessGeorge</a></p>
+        </div>
 
-          <div class="contacts__mail">
-            <label class="contacts__label"
-              :class="{ contacts__label_active: isMailActive, [store.currentColorClass]: true }" for="mail">Your
-              mail</label>
-            <input required v-model="email" :class="store.currentColorClass" id="mail" name="mail" type="text"
-              @focus="handleMailFocus" @blur="handleMailBlur" />
-          </div>
-
-          <div class="contacts__message">
-            <label class="contacts__label"
-              :class="{ contacts__label_active: isMessageActive, [store.currentColorClass]: true }"
-              for="message">Message</label>
-            <textarea v-model="message" :class="store.currentColorClass" id="message" name="message"
-              @focus="handleMessageFocus" @blur="handleMessageBlur"></textarea>
-          </div>
-
-          <TheButton :disabled="isDisabled">Send</TheButton>
-          <p v-if="success" class="contacts__form-action">Message sent thx</p>
-        </form>
+      </div>
+      <!-- :class="store.currentColorClass" class="waves" -->
+      <div class="waves">
+        <svg :class="store.currentColorClass"  width="1920" height="464" viewBox="0 0 1920 464" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M-482 111.14C-381.362 91.9502 -280.723 72.7562 -180.08 51.3723C-79.4421 29.984 21.1961 6.4058 121.834 25.7565C222.473 45.1072 323.111 107.391 423.754 119.68C524.392 131.968 625.031 94.2654 725.669 85.5238C826.307 76.7822 926.95 97.0061 1027.59 76.9882C1128.23 56.9702 1228.86 -3.2897 1329.5 0.14067C1430.15 3.56656 1530.78 70.6828 1631.42 85.5238C1732.06 100.365 1832.7 62.9308 1933.34 51.3723C2033.98 39.8139 2134.62 54.131 2235.26 68.4481V743C2134.62 743 2033.98 743 1933.34 743C1832.7 743 1732.06 743 1631.42 743C1530.78 743 1430.15 743 1329.5 743C1228.86 743 1128.23 743 1027.59 743C926.95 743 826.307 743 725.669 743C625.031 743 524.392 743 423.754 743C323.111 743 222.473 743 121.834 743C21.1961 743 -79.4421 743 -180.08 743C-280.723 743 -381.362 743 -482 743V111.14Z"
+            fill="#3178C6" fill-opacity="0.05" />
+          <path
+            d="M-482 244.606C-381.362 263.648 -280.723 282.69 -180.08 261.682C-79.4421 240.679 21.1961 179.631 121.834 167.759C222.473 155.887 323.111 193.191 423.754 201.915C524.392 210.634 625.031 190.768 725.669 201.915C826.307 213.057 926.95 255.211 1027.59 253.147C1128.23 251.078 1228.86 204.794 1329.5 184.835C1430.15 164.879 1530.78 171.252 1631.42 184.835C1732.06 198.417 1832.7 219.21 1933.34 236.066C2033.98 252.923 2134.62 265.843 2235.26 278.762V663C2134.62 663 2033.98 663 1933.34 663C1832.7 663 1732.06 663 1631.42 663C1530.78 663 1430.15 663 1329.5 663C1228.86 663 1128.23 663 1027.59 663C926.95 663 826.307 663 725.669 663C625.031 663 524.392 663 423.754 663C323.111 663 222.473 663 121.834 663C21.1961 663 -79.4421 663 -180.08 663C-280.723 663 -381.362 663 -482 663V244.606Z"
+            fill="#3178C6" fill-opacity="0.05" />
+          <path
+            d="M-482 375.235C-381.362 364.052 -280.723 352.87 -180.08 358.154C-79.4421 363.439 21.1961 385.19 121.834 375.235C222.473 365.275 323.111 323.604 423.754 324.003C524.392 324.397 625.031 366.856 725.669 375.235C826.307 383.609 926.95 357.899 1027.59 349.619C1128.23 341.334 1228.86 350.479 1329.5 358.154C1430.15 365.835 1530.78 372.046 1631.42 366.694C1732.06 361.343 1832.7 344.428 1933.34 341.079C2033.98 337.729 2134.62 347.944 2235.26 358.154V580.161C2134.62 580.161 2033.98 580.161 1933.34 580.161C1832.7 580.161 1732.06 580.161 1631.42 580.161C1530.78 580.161 1430.15 580.161 1329.5 580.161C1228.86 580.161 1128.23 580.161 1027.59 580.161C926.95 580.161 826.307 580.161 725.669 580.161C625.031 580.161 524.392 580.161 423.754 580.161C323.111 580.161 222.473 580.161 121.834 580.161C21.1961 580.161 -79.4421 580.161 -180.08 580.161C-280.723 580.161 -381.362 580.161 -482 580.161V375.235Z"
+            fill="#3178C6" fill-opacity="0.05" />
+        </svg>
       </div>
 
-      <svg :class="store.currentColorClass" class="waves" width="1920" height="464" viewBox="0 0 1920 464"
-        fill="#3178C6" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M-108 83.6843C-32.2229 69.2353 43.5542 54.7829 119.335 38.6816C195.112 22.5769 270.889 4.82334 346.666 19.3938C422.443 33.9642 498.221 80.8619 574.001 90.1147C649.778 99.3674 725.555 70.9786 801.333 64.3965C877.11 57.8143 952.89 73.0422 1028.67 57.9694C1104.44 42.8966 1180.22 -2.47703 1256 0.10592C1331.78 2.6855 1407.56 53.2216 1483.33 64.3965C1559.11 75.5713 1634.89 47.3847 1710.67 38.6816C1786.45 29.9785 1862.22 40.7587 1938 51.539V559.453C1862.22 559.453 1786.45 559.453 1710.67 559.453C1634.89 559.453 1559.11 559.453 1483.33 559.453C1407.56 559.453 1331.78 559.453 1256 559.453C1180.22 559.453 1104.44 559.453 1028.67 559.453C952.89 559.453 877.11 559.453 801.333 559.453C725.555 559.453 649.778 559.453 574.001 559.453C498.221 559.453 422.443 559.453 346.666 559.453C270.889 559.453 195.112 559.453 119.335 559.453C43.5542 559.453 -32.2229 559.453 -108 559.453V83.6843Z"
-          fill="#3178C6" fill-opacity="0.05" />
-        <path
-          d="M-108 244.417C-32.2229 258.755 43.5542 273.093 119.335 257.275C195.112 241.46 270.889 195.493 346.666 186.554C422.443 177.615 498.221 205.703 574.001 212.272C649.778 218.837 725.555 203.879 801.333 212.272C877.11 220.662 952.89 252.402 1028.67 250.848C1104.44 249.29 1180.22 214.44 1256 199.411C1331.78 184.386 1407.56 189.184 1483.33 199.411C1559.11 209.639 1634.89 225.295 1710.67 237.987C1786.45 250.679 1862.22 260.407 1938 270.136V559.453C1862.22 559.453 1786.45 559.453 1710.67 559.453C1634.89 559.453 1559.11 559.453 1483.33 559.453C1407.56 559.453 1331.78 559.453 1256 559.453C1180.22 559.453 1104.44 559.453 1028.67 559.453C952.89 559.453 877.11 559.453 801.333 559.453C725.555 559.453 649.778 559.453 574.001 559.453C498.221 559.453 422.443 559.453 346.666 559.453C270.889 559.453 195.112 559.453 119.335 559.453C43.5542 559.453 -32.2229 559.453 -108 559.453V244.417Z"
-          fill="#3178C6" fill-opacity="0.05" />
-        <path
-          d="M-108 405.15C-32.2229 396.73 43.5542 388.31 119.335 392.289C195.112 396.268 270.889 412.646 346.666 405.15C422.443 397.65 498.221 366.274 574.001 366.574C649.778 366.871 725.555 398.841 801.333 405.15C877.11 411.455 952.89 392.097 1028.67 385.862C1104.44 379.624 1180.22 386.509 1256 392.289C1331.78 398.072 1407.56 402.749 1483.33 398.719C1559.11 394.69 1634.89 381.954 1710.67 379.431C1786.45 376.909 1862.22 384.601 1938 392.289V559.452C1862.22 559.452 1786.45 559.452 1710.67 559.452C1634.89 559.452 1559.11 559.452 1483.33 559.452C1407.56 559.452 1331.78 559.452 1256 559.452C1180.22 559.452 1104.44 559.452 1028.67 559.452C952.89 559.452 877.11 559.452 801.333 559.452C725.555 559.452 649.778 559.452 574.001 559.452C498.221 559.452 422.443 559.452 346.666 559.452C270.889 559.452 195.112 559.452 119.335 559.452C43.5542 559.452 -32.2229 559.452 -108 559.452V405.15Z"
-          fill="#3178C6" fill-opacity="0.05" />
-      </svg>
+
 
       <footer>
         <p>Design available at <a :class="store.currentColorClass" href="/">Figma</a></p>
@@ -90,75 +81,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { usePortfolioStore } from '../../store/portfolio-store';
-
 const store = usePortfolioStore();
-const isNameActive = ref(false);
-const isMailActive = ref(false);
-const isMessageActive = ref(false);
 
-function handleNameFocus() {
-  isNameActive.value = true;
-}
-
-function handleNameBlur(event: FocusEvent): void {
-  const target = event.target as HTMLInputElement;
-  if (target.value.trim() === "") {
-    isNameActive.value = false;
-  }
-}
-
-function handleMailFocus() {
-  isMailActive.value = true;
-}
-
-function handleMailBlur(event: FocusEvent): void {
-  const target = event.target as HTMLInputElement;
-  if (target.value.trim() === "") {
-    isMailActive.value = false;
-  }
-}
-
-function handleMessageFocus() {
-  isMessageActive.value = true;
-}
-
-function handleMessageBlur(event: FocusEvent): void {
-  const target = event.target as HTMLInputElement;
-  if (target.value.trim() === "") {
-    isMessageActive.value = false;
-  }
-}
-
-
-const name = ref('');
-const email = ref('');
-const message = ref('');
-const success = ref(false);
-const isDisabled = ref(false);
-const submitForm = async () => {
-  const response = await fetch('../../../php/formSubmit.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      name: name.value,
-      email: email.value,
-      message: message.value,
-    }),
-  });
-
-  success.value = true;
-  isDisabled.value = true
-
-}
 </script>
 
 <style scoped lang="scss">
 .contacts {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -184,111 +115,76 @@ const submitForm = async () => {
   &__upper {
     display: flex;
     gap: 20px;
+    align-items: center;
   }
 
   &__title {
-    color: var(--text-color);
-    font-size: 48px;
-    font-weight: 700;
+    @include title;
+  }
 
-    span {
-      color: var(--primary-color);
-      text-shadow: 5px 5px 20px var(--hover-color);
+  &__descr {
+    width: 60%;
+    margin-top: 30px;
+    font-size: 1.25rem;
+
+    @include tablet-landscape-adp {
+      width: 90%;
     }
   }
 
-  svg {
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  &__link {
+    font-size: 1.125rem;
+
+    a {
+      transition: all 1s;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-decoration: none;
+
+      &:hover {
+        text-shadow: 5px 5px 20px var(--hover-color);
+      }
+    }
+  }
+
+  &__arrow {
+    @include desktop-adp {
+      width: 28px;
+      height: auto;
+    }
+
+    @include tablet-landscape-adp {
+      width: 26px;
+    }
+
     path {
       fill: var(--primary-color);
     }
   }
 
-  &__form {
-    margin-top: 85px;
-    display: grid;
-    grid-template-columns: 200px 200px;
-    grid-template-rows: 40px 70px;
-    row-gap: 50px;
-    column-gap: 50px;
-
-    input {
-      caret-color: var(--primary-color);
-      height: 100%;
-      width: 100%;
-      transition: all 1s;
-      color: var(--text-color);
-      background-color: transparent;
-      border: none;
-      border-bottom: solid 1px var(--text-color);
-
-      &:focus {
-        transition: all 1s;
-        outline: none;
-        border-bottom: solid 1px var(--primary-color);
-      }
-    }
-  }
-
-  &__label {
-    transition: all 1s;
-    color: var(--text-color);
-    position: absolute;
-    top: 10px;
-    cursor: text;
-
-    &_active {
-      font-size: 14px;
-      transition: all 1s;
-      color: var(--primary-color);
-      top: -15px;
-    }
-  }
-
-  &__name {
-    position: relative;
-    grid-column: 1 / 2;
-  }
-
-  &__mail {
-    position: relative;
-    grid-column: 2 / 3;
-  }
-
-  &__message {
-    position: relative;
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-
-    textarea {
-      caret-color: var(--primary-color);
-      padding-top: 10px;
-      resize: none;
-      width: 100%;
-      height: 100%;
-      transition: all 1s;
-      color: var(--text-color);
-      background-color: transparent;
-      border: none;
-      border-bottom: solid 1px var(--text-color);
-
-      &:focus {
-        transition: all 1s;
-        outline: none;
-        border-bottom: solid 1px var(--primary-color);
-      }
-    }
-  }
 }
 
 .waves {
+  width: 100vw;
+  height: auto;
   z-index: -10;
   position: absolute;
   left: 0;
-  bottom: 0;
-  fill: var(--primary-color);
+  bottom: -5px;
 
-  path {
+  svg {
+    width: 100%;
+    height: 100%;
+    path {
     fill-opacity: 0.10;
+    fill: var(--primary-color);
 
     &:first-child {
       animation: wave 5s ease-in-out 0s infinite alternate;
@@ -303,14 +199,22 @@ const submitForm = async () => {
       // transform: translateY(10px);
     }
   }
+  }
+
+  
 }
 
+// @media (max-width:960px) {
+
+//   }
 @keyframes wave {
   0% {
+    // transform: translateX(100px);
     transform: translateY(10px);
   }
 
   100% {
+    // transform: translateX(0px);
     transform: translateY(0px);
   }
 }

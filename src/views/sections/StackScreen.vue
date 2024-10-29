@@ -120,7 +120,17 @@
 
         <div class="stack__descr">
           <div :class="store.currentColorClass" class="stack__light"></div>
-          <h2 :class="store.currentColorClass" class="stack__title">Tech <span>stack</span></h2>
+          <div class="stack__title-wrapper">
+            <h2 :class="store.currentColorClass" class="stack__title">Tech <span>stack</span></h2>
+            <svg :class="store.currentColorClass" width="31" height="33" viewBox="0 0 31 33" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M30.866 10.706L15.5 0.185791L0.134033 10.706L15.5 21.2251L30.866 10.706ZM15.5 23.5724L1.93656 14.6292L0.134033 16.5L15.5 27.019L30.866 16.5L29.0391 14.589L15.5 23.5724ZM15.5 29.3688L1.93656 20.4256L0.134033 22.2964L15.5 32.8154L30.866 22.2964L29.0391 20.3854L15.5 29.3688Z"
+                fill="#F53399" />
+            </svg>
+
+          </div>
+
           <transition name="fade" mode="out-in">
             <p v-if="selectedTab === 'tab1'" class="stack__text" :class="store.currentColorClass">I work with a robust
               stack of frontend technologies.
@@ -150,9 +160,12 @@
               message queuing and <span>Redis</span> for caching.
             </p>
             <p v-else-if="selectedTab === 'tab3'" class="stack__text" :class="store.currentColorClass">
-              <span>Figma</span> and <span>Photoshop</span> assist me in handling various design tasks. For coding, I rely on <span>Visual Studio Code</span>
-              for lighter projects.<br><br> When it comes to more demanding tasks, I utilize <span>Intellij IDEA</span>, <span>WebStorm</span>, and
-              <span>PHPStorm</span>, each tailored for specific programming languages and needs. <br><br> <span>Git</span> simplifies version control,
+              <span>Figma</span> and <span>Photoshop</span> assist me in handling various design tasks. For coding, I
+              rely on <span>Visual Studio Code</span>
+              for lighter projects.<br><br> When it comes to more demanding tasks, I utilize <span>Intellij IDEA</span>,
+              <span>WebStorm</span>, and
+              <span>PHPStorm</span>, each tailored for specific programming languages and needs. <br><br>
+              <span>Git</span> simplifies version control,
               making collaboration more efficient, while <span>Postman</span> is great for testing APIs.
             </p>
           </transition>
@@ -174,26 +187,30 @@ const selectedTab = ref('tab1');
 </script>
 
 <style scoped lang="scss">
-svg {
-  position: absolute;
-}
-
-
 .stack {
   display: flex;
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: auto;
 
   &__main_wrapper {
-    // margin-top: 20vh;
     transform: translateY(100px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     opacity: 0;
+
+    @include tablet-landscape-adp {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 1.875rem;
+    }
+
+    @include phone-adp {
+      gap: 1rem;
+    }
   }
 
   &__tabs_wrapper {
@@ -201,7 +218,14 @@ svg {
     display: flex;
     flex-direction: column;
 
-    justify-content: space-between;
+    @include tablet-landscape-adp {
+      width: 400px;
+    }
+
+    @include phone-adp {
+      width: unset;
+      align-items: center;
+    }
   }
 
   &__tabs {
@@ -209,6 +233,10 @@ svg {
     flex-direction: row;
     gap: 20px;
     margin-top: 20px;
+
+    @include phone-adp {
+      gap: 5px;
+    }
   }
 
   &__tab_title {
@@ -219,7 +247,21 @@ svg {
     color: var(--text-color);
     text-align: center;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.25rem;
+
+    @include desktop-adp {
+      font-size: 1.125rem;
+    }
+
+    @include tablet-landscape-adp {
+      font-size: 1rem;
+      width: 105px;
+    }
+
+    @include phone-adp {
+      font-size: 0.875rem;
+      width: 80px;
+    }
 
     &-active {
       transition: all 1s;
@@ -245,6 +287,22 @@ svg {
     margin-top: 45px;
     padding-left: 5%;
 
+    @include desktop-adp {
+      gap: 60px;
+    }
+
+    @include tablet-landscape-adp {
+      margin-top: 30px;
+      gap: 50px;
+      padding-left: 0;
+    }
+
+    @include phone-adp {
+      margin-top: 15px;
+      gap: 20px;
+      justify-content: center;
+    }
+
   }
 
   &__icon {
@@ -258,6 +316,29 @@ svg {
     background: var(--stack-icon-bg);
     color: var(--text-color);
 
+    @include desktop-adp {
+      height: 100px;
+      width: 100px;
+    }
+
+    @include phone-adp {
+      height: 50px;
+      width: 50px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+
+      @include desktop-adp {
+        max-width: 60%
+      }
+
+      @include tablet-landscape-adp {
+        max-width: 50%
+      }
+    }
+
     &:hover {
       transition: transform 0.5s linear;
       transform: scale(1.05);
@@ -267,8 +348,12 @@ svg {
     &:last-child {
       &:hover {
         transform: none;
-        cursor: default
+        cursor: default;
       }
+    }
+
+    @include phone-adp {
+      font-size: .625rem;
     }
 
   }
@@ -277,20 +362,49 @@ svg {
     width: 50%;
     position: relative;
 
+    @include tablet-landscape-adp {
+      width: unset;
+    }
   }
 
   &__title {
-    color: var(--text-color);
-    font-size: 48px;
-    font-weight: 700;
-    text-align: center;
-  }
+    display: block;
+    width: fit-content;
+    // margin: 0 auto;
+    @include title;
 
-  span {
-    transition: all 1s;
-    color: var(--primary-color);
-    text-shadow: 5px 5px 20px var(--hover-color);
-    font-weight: 600;
+    @include desktop-adp {
+      margin-top: 10px;
+    }
+
+    
+    &-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+      justify-content: center;
+
+      @include tablet-landscape-adp {
+        margin-bottom: 20px;
+      }
+
+      svg {
+        path {
+          transition: all 1s;
+          fill: var(--primary-color);
+        }
+
+        @include desktop-adp {
+          width: 28px;
+        }
+
+        @include tablet-landscape-adp {
+          width: 26px;
+          margin-top: 5px;
+          align-self: center;
+        }
+      }
+    }
   }
 
   &__light {
@@ -303,6 +417,16 @@ svg {
     height: 500px;
     background-color: var(--light-color);
     filter: blur(50px);
+
+    @include desktop-adp {
+      width: 450px;
+      height: 450px;
+    }
+
+    @include tablet-landscape-adp {
+      display: none;
+    }
+
   }
 
 
@@ -315,12 +439,43 @@ svg {
     font-weight: 300;
     font-size: 1.25rem;
     color: var(--text-color);
+
+    @include desktop-adp {
+      font-size: 1.125rem;
+      width: 450px;
+    }
+
+    @include tablet-landscape-adp {
+      font-size: 1rem;
+      width: 90%;
+      margin-top: 0;
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
+
+    @include phone-adp {
+      font-size: 0.875rem;
+      line-height: 28px;
+    }
+
+
+
+    span {
+      transition: all 1s;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+
   }
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fade-enter-from,
