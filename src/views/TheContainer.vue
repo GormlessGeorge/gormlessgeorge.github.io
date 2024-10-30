@@ -17,8 +17,8 @@
   @include tablet-adp {
     max-width: 540px;
   }
-  @include tablet-adp {
-    width: 100%;
+  @include phone-adp {
+    max-width: 320px;
   }
 }
 

@@ -40,7 +40,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .main {
   width: 100%;
-  height: 100dvh;
+  height: 100svh;
   display: flex;
   align-items: center;
 
@@ -68,9 +68,10 @@ const props = defineProps<{
   &__title {
     transition: all 1s;
     font-size: 1.25rem;
-    line-height: 2rem;
     color: var(--text-color);
     font-weight: 500;
+
+    @include text-lh;
 
     @include desktop-adp {
       font-size: 1.125rem;
@@ -95,6 +96,7 @@ const props = defineProps<{
     font-weight: 300;
     font-size: 1.25rem;
     color: var(--text-color);
+    @include text-lh;
 
     @include desktop-adp {
       font-size: 1.125rem;

@@ -23,6 +23,11 @@
     font-size: 48px;
     color: var(--text-color);
     font-weight: 700;
+    span {
+        transition: all 1s;
+        color: var(--primary-color);
+        text-shadow: 5px 5px 20px var(--hover-color);
+    }
     @include desktop-adp {
         font-size: 40px;
     }
@@ -31,10 +36,12 @@
     }
     @include phone-adp {
         font-size: 26px;
-      }
-    span {
-        transition: all 1s;
-        color: var(--primary-color);
-        text-shadow: 5px 5px 20px var(--hover-color);
+    }
+}
+
+@mixin text-lh {
+    line-height: 32px;
+    @include phone-adp {
+        line-height: 26px;
     }
 }

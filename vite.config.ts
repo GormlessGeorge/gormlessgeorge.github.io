@@ -10,11 +10,11 @@ export default defineConfig({
     postcss: {
       plugins: [
         autoprefixer,
-        // pxtorom({
-        //   rootValue: 16,
-        //   propList: ['*'],
-        //   atRules: ['media'],
-        // }),
+        pxtorom({
+          rootValue: 16,
+          propList: ['*'],
+          atRules: ['media'],
+        }),
       ],
     },
     preprocessorOptions: {
