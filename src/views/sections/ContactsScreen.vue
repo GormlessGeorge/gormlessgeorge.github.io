@@ -1,7 +1,7 @@
 <template>
   <section class="contacts" id="contacts">
     <TheContainer>
-      <div class="contacts__wrapper">
+      <div class="contacts__wrapper fade-in" data-fade-in-time="0.6s">
         <div class="contacts__upper">
           <h2 :class="store.currentColorClass" class="contacts__title">Let's get in <span>touch</span></h2>
           <div class="contacts__title-icon">
@@ -97,6 +97,8 @@ const store = usePortfolioStore();
   align-items: center;
 
   &__wrapper {
+    opacity: 0;
+    transform: translateY(200px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -305,7 +307,7 @@ footer {
 
     span {
       color: #06ac2a;
-
+      font-weight: 700;
       &:nth-child(2) {
         color: rgb(252, 252, 2);
       }
@@ -313,3 +315,4 @@ footer {
   }
 }
 </style>
+

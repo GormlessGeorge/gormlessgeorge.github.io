@@ -20,7 +20,7 @@ import { storeToRefs } from 'pinia'
 const store = usePortfolioStore();
 
 const inMove = ref(false);
-const inMoveDelay = ref(400);
+const inMoveDelay = ref(900);
 
 const { activeSection } = storeToRefs(store);
 // const  activeSection  = ref(0);

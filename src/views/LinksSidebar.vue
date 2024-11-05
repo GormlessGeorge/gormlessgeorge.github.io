@@ -87,8 +87,8 @@ div {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       cursor: pointer;
       transition: all 0.8s linear;
       list-style: none;

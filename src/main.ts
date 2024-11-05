@@ -6,7 +6,9 @@ import TheContainer from './views/TheContainer.vue';
 import TheButton from './views/TheButton.vue';
 import App from './App.vue';
 
-
+const x = 5;
+const y = 2;
+const z = x %y;
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     const observer = new IntersectionObserver((entries) => {
