@@ -3,7 +3,7 @@
     <TheContainer>
       <div class="contacts__wrapper fade-in" data-fade-in-time="0.6s">
         <div class="contacts__upper">
-          <h2 :class="store.currentColorClass" class="contacts__title">Let's get in <span>touch</span></h2>
+          <h2 :class="store.currentColorClass" class="contacts__title" v-html="formattedTitle"></h2>
           <div class="contacts__title-icon">
             <svg :class="store.currentColorClass" width="32" height="55" viewBox="0 0 32 55" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -39,8 +39,7 @@
 
         </div>
         <div :class="store.currentColorClass" class="contacts__light"></div>
-        <p class="contacts__descr">Need some help, have an idea, or just want to chat? Don't hesitate to reach out
-          using any of these:</p>
+        <p class="contacts__descr">{{t("contactsScreen.description")}}</p>
         <div class="contacts__social">
           <p class="contacts__link">Email: <a :class="store.currentColorClass"
               href="mailto:georgekulaev@yandex.ru">georgekulaev@yandex.ru</a></p>
@@ -83,11 +82,16 @@
 
 <script setup lang="ts">
 import { usePortfolioStore } from '../../store/portfolio-store';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 const store = usePortfolioStore();
 
+const { t } = useI18n();
+const formattedTitle = computed(() => { return t('contactsScreen.title'); });
 </script>
 
 <style scoped lang="scss">
+
 .contacts {
   position: relative;
   width: 100%;
@@ -308,6 +312,7 @@ footer {
     span {
       color: #06ac2a;
       font-weight: 700;
+
       &:nth-child(2) {
         color: rgb(252, 252, 2);
       }
@@ -315,4 +320,3 @@ footer {
   }
 }
 </style>
-

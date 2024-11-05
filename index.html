@@ -1,29 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>George Kulaev</title>
-    <link rel="icon"  type="image/svg+xml" href="/favicon.svg">
-    <style>
-      .no-transition * {
-        transition: none;
-      }
-    </style>
-    <script>
-      const isDarkTheme = localStorage.getItem('isDarkTheme') === 'true';
-      document.documentElement.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
-      document.documentElement.classList.add('no-transition');
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        document.documentElement.classList.remove('no-transition');
-      });
-    </script>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <title>George Kulaev</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="George Kulaev" />
+  <meta name="description" content="Developer website: George Kulaev">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gormlessgeorge.github.io/" />
+  <meta property="og:title" content="George Kulaev" />
+  <meta property="og:description" content="Developer website: George Kulaev" />
+  <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://gormlessgeorge.github.io/" />
+  <meta property="twitter:title" content="George Kulaev" />
+  <meta property="twitter:description" content="Developer website: George Kulaev" />
+  <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    .no-transition * {
+      transition: none;
+    }
+  </style>
+  <script>
+    const isDarkTheme = localStorage.getItem('isDarkTheme') === 'true';
+    document.documentElement.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+    document.documentElement.classList.add('no-transition');
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.documentElement.classList.remove('no-transition');
+    });
+  </script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

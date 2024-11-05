@@ -2,7 +2,7 @@
     <section class="projects" id="projects">
         <TheContainer>
             <div class="projects__title-wrapper">
-                <h2 :class="store.currentColorClass" class="projects__title">Latest <span>projects</span></h2>
+                <h2 :class="store.currentColorClass" v-html="formattedTitle" class="projects__title"></h2>
                 <div class="projects__title-icon">
                     <svg :class="store.currentColorClass" width="39" height="39" viewBox="0 0 39 39" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -17,10 +17,7 @@
                     <div class="projects__img">
                         <img loading="eager" src="../../assets/img/prj/pearl2.png" alt="project_image">
                     </div>
-                    <p class="projects__descr">Multi-page website for a restaurant. Contributed as a front-end
-                        developer, utilizing pure vanilla <span>JavaScript</span> to
-                        create a seamless and engaging user
-                        experience.
+                    <p class="projects__descr" v-html="formattedFirstProject">
                     </p>
 
                 </div>
@@ -28,18 +25,14 @@
                     <div class="projects__img">
                         <img loading="eager" src="../../assets/img/prj/dsp.png" alt="project_image">
                     </div>
-                    <p class="projects__descr">A simple yet functional landing page for English courses, featuring a
-                        basic user dashboard. Built to provide an intuitive learning experience, also using vanilla
-                        <span>JavaScript</span>.
+                    <p class="projects__descr" v-html="formattedSecondProject">
                     </p>
                 </div>
                 <div class="projects__project fade-in" data-fade-in-time="1s">
                     <div class="projects__img">
                         <img loading="eager" src="../../assets/img/prj/owl.png" alt="project_image">
                     </div>
-                    <p class="projects__descr">Single Page Application (SPA) for a local café with ordering
-                        functionality and integrated payment system. Built using <span>Vue</span>, <span>Laravel</span>,
-                        and <span>Inertia</span>. Utilizes SSR with Node.
+                    <p class="projects__descr" v-html="formattedThirdProject">
                     </p>
                 </div>
             </div>
@@ -48,10 +41,17 @@
 </template>
 
 <script setup lang="ts">
+import {computed} from 'vue';
 import { usePortfolioStore } from '../../store/portfolio-store';
-
+import { useI18n } from 'vue-i18n';
 const store = usePortfolioStore();
 
+
+const { t } = useI18n();
+const formattedTitle = computed(() => { return t('projectsScreen.title'); });
+const formattedFirstProject = computed(() => { return t('projectsScreen.firstProject'); });
+const formattedSecondProject = computed(() => { return t('projectsScreen.secondProject'); });
+const formattedThirdProject = computed(() => { return t('projectsScreen.thirdProject'); });
 </script>
 
 <style scoped lang="scss">
@@ -159,6 +159,10 @@ const store = usePortfolioStore();
 
         @include tablet-landscape-adp {
             font-size: 1rem;
+        }
+
+        @include tablet-adp {
+            font-size: 0.875rem;
         }
 
         @include phone-adp {

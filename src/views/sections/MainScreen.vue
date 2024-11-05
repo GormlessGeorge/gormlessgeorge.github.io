@@ -4,22 +4,18 @@
     <TheContainer>
       <div class="main__wrapper">
         <div class="main__about">
-          <h1 class="main__title">
-            Hello,<br />
-            my name is <span :class="store.currentColorClass">George</span>
-          </h1>
-          <p class="main__text">
-            I'm a <span :class="store.currentColorClass">Fullstack Web Developer</span>, passionate about building
-            intuitive and scalable web applications. From the visual front-end to the
-            core back-end. I’m always exploring new technologies to bring fresh ideas to life. My goal is to make each
-            project uniquely successful and impactful. Let's build something
-            amazing together!
-          </p>
-          <TheButton @click="scrollToSection(3)">Contact me</TheButton>
+          <transition name="fade" mode="out-in">
+            <h1 class="main__title" :key="formattedTitle" v-html="formattedTitle" :class="store.currentColorClass"></h1>
+          </transition>
+          <transition name="fade" mode="out-in">
+            <p class="main__text" :key="formattedDescr" v-html="formattedDescr" :class="store.currentColorClass"></p>
+          </transition>
+          <TheButton @click="scrollToSection(3)">{{ t("button.contact") }}</TheButton>
+
         </div>
 
         <div :class="store.currentColorClass" class="main__photo">
-          <img loading="lazy" src="@/assets/img/retard.jpg" alt="dev_photo" />
+          <img src="@/assets/img/retard.jpg" alt="dev_photo" />
         </div>
       </div>
     </TheContainer>
@@ -29,12 +25,20 @@
 <script setup lang="ts">
 import TheHeader from "../TheHeader.vue";
 import { usePortfolioStore } from '../../store/portfolio-store';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const store = usePortfolioStore();
 
 const props = defineProps<{
   scrollToSection: (section: number) => void;
 }>();
+
+
+const { t } = useI18n();
+
+const formattedTitle = computed(() => { return t('mainScreen.title'); });
+const formattedDescr = computed(() => { return t('mainScreen.description'); });
 </script>
 
 <style scoped lang="scss">
@@ -66,7 +70,6 @@ const props = defineProps<{
   }
 
   &__title {
-    transition: all 1s;
     font-size: 1.25rem;
     color: var(--text-color);
     font-weight: 500;
@@ -92,7 +95,7 @@ const props = defineProps<{
   &__text {
     margin: 0;
     margin-top: 15px;
-    width: 28.5rem;
+    width: 30.5rem;
     font-weight: 300;
     font-size: 1.25rem;
     color: var(--text-color);
@@ -113,13 +116,6 @@ const props = defineProps<{
       width: 19.5rem;
     }
 
-    // @include tablet-adp {
-    //   font-size: 0.875rem;
-    // }
-
-    // @include tablet-adp {
-    //   width: 100%;
-    // }
   }
 
   span {
@@ -150,10 +146,6 @@ const props = defineProps<{
       width: 200px;
     }
 
-    // @include tablet-landscape-adp {
-    //   height: 250px;
-    //   width: 250px;
-    // }
 
     img {
       object-fit: cover;

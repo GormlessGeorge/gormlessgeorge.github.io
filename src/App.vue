@@ -53,7 +53,7 @@ const handleMouseWheel = (e) => {
 const handleMouseWheelDOM = (e) => {
   if (e.detail > 0 && !inMove.value) {
     moveUp();
-  } else if (e.detail < 0 && !inMove.value) {
+  } else if (e.detail < 0 && !inMove.value ) {
     moveDown();
   }
   return false;
@@ -61,17 +61,26 @@ const handleMouseWheelDOM = (e) => {
 
 const moveDown = () => {
   inMove.value = true;
-  activeSection.value--;
-  if (activeSection.value < 0) activeSection.value = offsets.value.length - 1;
+  if (activeSection.value > 0) {
+    activeSection.value--;
+  } else {
+    inMove.value = false;
+    return; 
+  }
   scrollToSection(activeSection.value, true);
 };
 
 const moveUp = () => {
   inMove.value = true;
-  activeSection.value++;
-  if (activeSection.value > offsets.value.length - 1) activeSection.value = 0;
+  if (activeSection.value < offsets.value.length - 1) {
+    activeSection.value++;
+  } else {
+    inMove.value = false;
+    return; 
+  }
   scrollToSection(activeSection.value, true);
 };
+
 
 const scrollToSection = (id, force = false) => {
   if (inMove.value && !force) return false;
@@ -86,37 +95,19 @@ const scrollToSection = (id, force = false) => {
   }, inMoveDelay.value);
 };
 
-const touchStart = (e) => {
-  e.preventDefault();
-  touchStartY.value = e.touches[0].clientY;
-};
 
-const touchMove = (e) => {
-  if (inMove.value) return false;
-  e.preventDefault();
-  const currentY = e.touches[0].clientY;
-  if (touchStartY.value < currentY) {
-    moveDown();
-  } else {
-    moveUp();
-  }
-  touchStartY.value = 0;
-  return false;
-};
 
 onMounted(() => {
   calculateSectionOffsets();
-  window.addEventListener('DOMMouseScroll', handleMouseWheelDOM); // Mozilla Firefox
-  window.addEventListener('mousewheel', handleMouseWheel, { passive: false }); // Other browsers
-  // window.addEventListener('touchstart', touchStart, { passive: false }); // mobile devices
-  // window.addEventListener('touchmove', touchMove, { passive: false }); // mobile devices
+  window.addEventListener('DOMMouseScroll', handleMouseWheelDOM); 
+  window.addEventListener('mousewheel', handleMouseWheel, { passive: false }); 
+
 });
 
 onUnmounted(() => {
-  window.removeEventListener('DOMMouseScroll', handleMouseWheelDOM); // Mozilla Firefox
-  window.removeEventListener('mousewheel', handleMouseWheel, { passive: false }); // Other browsers
-  // window.removeEventListener('touchstart', touchStart); // mobile devices
-  // window.removeEventListener('touchmove', touchMove); // mobile devices
+  window.removeEventListener('DOMMouseScroll', handleMouseWheelDOM); 
+  window.removeEventListener('mousewheel', handleMouseWheel, { passive: false }); 
+
 });
 </script>
 

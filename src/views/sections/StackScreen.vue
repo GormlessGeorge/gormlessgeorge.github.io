@@ -1,8 +1,8 @@
 <template>
   <section class="stack" id="stack">
     <TheContainer>
-      <div class="stack__main_wrapper fade-in" data-fade-in-time="0.6s">
-        <div class="stack__tabs_wrapper">
+      <div class="stack__main_wrapper">
+        <div class="stack__tabs_wrapper fade-in" data-fade-in-time="0.6s">
           <div class="stack__tabs">
             <div class="stack__tab_title" @click="selectedTab = 'tab1'"
               :class="{ 'stack__tab_title-active': selectedTab === 'tab1', [currentColorClass]: selectedTab === 'tab1' }">
@@ -50,78 +50,78 @@
                 </div>
 
                 <div class="stack__icon">
-                  And more!
+                  {{ t("stackScreen.more") }}
                 </div>
               </div>
 
 
               <div v-else-if="selectedTab === 'tab2'" key="tab2" class="stack__tab">
                 <div class="stack__icon" @click="store.applyJavaColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/java_icon.svg" alt="java_icon" />
+                  <img src="@/assets/icons/tech_icons/java_icon.svg" alt="java_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyKotlinColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/kotlin_icon.svg" alt="kotlin_icon" />
+                  <img src="@/assets/icons/tech_icons/kotlin_icon.svg" alt="kotlin_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyPhpColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/php_icon.svg" alt="php_icon" />
+                  <img src="@/assets/icons/tech_icons/php_icon.svg" alt="php_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyLaravelColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/laravel_icon.svg" alt="laravel_icon" />
+                  <img src="@/assets/icons/tech_icons/laravel_icon.svg" alt="laravel_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyMysqlColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/mysql_icon.svg" alt="mysql_icon" />
+                  <img src="@/assets/icons/tech_icons/mysql_icon.svg" alt="mysql_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyPostgresColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/postgresql_icon.svg" alt="postgresql_icon" />
+                  <img src="@/assets/icons/tech_icons/postgresql_icon.svg" alt="postgresql_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyRabbitColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/rabbit_icon.svg" alt="rabbitmq_icon" />
+                  <img src="@/assets/icons/tech_icons/rabbit_icon.svg" alt="rabbitmq_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyRedisColor">
                   <img loading="lazy" src="@/assets/icons/tech_icons/redis_icon.svg" alt="redis_icon" />
                 </div>
                 <div class="stack__icon">
-                  And more!
+                  {{ t("stackScreen.more") }}
                 </div>
               </div>
 
               <div v-else-if="selectedTab === 'tab3'" key="tab3" class="stack__tab">
                 <div class="stack__icon" @click="store.applyFigmaColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/figma_icon.svg" alt="figma_icon" />
+                  <img src="@/assets/icons/tech_icons/figma_icon.svg" alt="figma_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyPsColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/ps_icon.svg" alt="photoshop_icon" />
+                  <img src="@/assets/icons/tech_icons/ps_icon.svg" alt="photoshop_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyVscodeColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/vscode_icon.svg" alt="vscode_icon" />
+                  <img src="@/assets/icons/tech_icons/vscode_icon.svg" alt="vscode_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyIjColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/ij_icon.svg" alt="ij_icon" />
+                  <img src="@/assets/icons/tech_icons/ij_icon.svg" alt="ij_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyWebstormColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/webstorm_icon.svg" alt="webstorm_icon" />
+                  <img src="@/assets/icons/tech_icons/webstorm_icon.svg" alt="webstorm_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyPhpstormColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/phpstorm_icon.svg" alt="phpstorm_icon" />
+                  <img src="@/assets/icons/tech_icons/phpstorm_icon.svg" alt="phpstorm_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyGitColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/git_icon.svg" alt="git_icon" />
+                  <img src="@/assets/icons/tech_icons/git_icon.svg" alt="git_icon" />
                 </div>
                 <div class="stack__icon" @click="store.applyPostmanColor">
-                  <img loading="lazy" src="@/assets/icons/tech_icons/postman_icon.svg" alt="postman_icon" />
+                  <img src="@/assets/icons/tech_icons/postman_icon.svg" alt="postman_icon" />
                 </div>
                 <div class="stack__icon">
-                  And more!
+                  {{ t("stackScreen.more") }}
                 </div>
               </div>
             </transition>
           </div>
         </div>
 
-        <div class="stack__descr">
+        <div class="stack__descr fade-in" data-fade-in-time="1s" >
           <div :class="store.currentColorClass" class="stack__light"></div>
           <div class="stack__title-wrapper">
-            <h2 :class="store.currentColorClass" class="stack__title">Tech <span>stack</span></h2>
+            <h2 :class="store.currentColorClass" v-html="formattedTitle" class="stack__title"></h2>
             <svg :class="store.currentColorClass" width="31" height="33" viewBox="0 0 31 33" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path
@@ -132,42 +132,12 @@
           </div>
 
           <transition name="fade" mode="out-in">
-            <p v-if="selectedTab === 'tab1'" class="stack__text" :class="store.currentColorClass">I work with a robust
-              stack of frontend technologies.
-              Starting with <span>JavaScript</span>
-              for dynamic and interactive content, <span>TypeScript</span> adds type
-              safety and efficiency.
-              <span>Vue.js</span> is my go-to for building user interfaces.
-              <br><br><span :class="store.currentColorClass">HTML</span> and <span
-                :class="store.currentColorClass">CSS</span> lay the foundation
-              for structure and design,
-              with <span :class="store.currentColorClass">Sass</span> enhancing the maintainability and
-              flexibility.<br><br> <span :class="store.currentColorClass">Inertia.js</span> paired with Laravel
-              simplifies
-              single-page application development, while <span :class="store.currentColorClass">Vite</span> ensures a
-              fast and efficient build process.
-            </p>
-            <p v-else-if="selectedTab === 'tab2'" class="stack__text" :class="store.currentColorClass">
-              I have a solid foundation in backend technologies. While I have extensive experience with
-              <span>Java</span> and <span>Kotlin</span>,
-              my current focus is primarily on <span>PHP</span> and the <span>Laravel</span> framework, which I use
-              extensively for most of my
-              projects.<br><br><span>MySQL</span> serves as my primary database system, and I have a working knowledge
-              of <span>PostgreSQL</span>, which
-              I can utilize when specific project requirements call for it. <br><br>Additionally, I’m familiar with
-              <span>RabbitMQ</span>
-              for
-              message queuing and <span>Redis</span> for caching.
-            </p>
-            <p v-else-if="selectedTab === 'tab3'" class="stack__text" :class="store.currentColorClass">
-              <span>Figma</span> and <span>Photoshop</span> assist me in handling various design tasks. For coding, I
-              rely on <span>Visual Studio Code</span>
-              for lighter projects.<br><br> When it comes to more demanding tasks, I utilize <span>Intellij IDEA</span>,
-              <span>WebStorm</span>, and
-              <span>PHPStorm</span>, each tailored for specific programming languages and needs. <br><br>
-              <span>Git</span> simplifies version control,
-              making collaboration more efficient, while <span>Postman</span> is great for testing APIs.
-            </p>
+            <p v-if="selectedTab === 'tab1'" v-html="formattedFrontendDescr" class="stack__text"
+              :class="store.currentColorClass"></p>
+            <p v-else-if="selectedTab === 'tab2'" v-html="formattedBackendDescr" class="stack__text"
+              :class="store.currentColorClass"></p>
+            <p v-else-if="selectedTab === 'tab3'" v-html="formattedToolsDescr" class="stack__text"
+              :class="store.currentColorClass"></p>
           </transition>
         </div>
 
@@ -178,14 +148,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { usePortfolioStore } from '../../store/portfolio-store';
 import { storeToRefs } from 'pinia';
+import { useI18n } from 'vue-i18n';
+
 const store = usePortfolioStore();
 const { currentColorClass } = storeToRefs(store);
 const selectedTab = ref('tab1');
-</script>
 
+
+const { t } = useI18n();
+const formattedTitle = computed(() => { return t('stackScreen.title'); });
+const formattedFrontendDescr = computed(() => { return t('stackScreen.frontendDescr'); });
+const formattedBackendDescr = computed(() => { return t('stackScreen.backendDescr'); });
+const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr'); });
+</script>
 <style scoped lang="scss">
 .stack {
   display: flex;
@@ -193,14 +171,13 @@ const selectedTab = ref('tab1');
   position: relative;
   width: 100%;
   height: 100svh;
-  overflow: auto;
+  overflow: hidden;
 
   &__main_wrapper {
-    transform: translateY(100px);
+    // transform: translateY(100px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    opacity: 0;
 
     @include tablet-landscape-adp {
       flex-direction: column-reverse;
@@ -217,7 +194,8 @@ const selectedTab = ref('tab1');
     width: 50%;
     display: flex;
     flex-direction: column;
-
+    opacity: 0;
+    transform: translateY(300px);
     @include tablet-landscape-adp {
       width: 400px;
     }
@@ -361,7 +339,8 @@ const selectedTab = ref('tab1');
   &__descr {
     width: 50%;
     position: relative;
-
+    opacity: 0;
+    transform: translateY(300px);
     @include tablet-landscape-adp {
       width: unset;
     }
@@ -370,14 +349,13 @@ const selectedTab = ref('tab1');
   &__title {
     display: block;
     width: fit-content;
-    // margin: 0 auto;
     @include title;
 
     @include desktop-adp {
       margin-top: 10px;
     }
 
-    
+
     &-wrapper {
       display: flex;
       gap: 20px;
@@ -471,16 +449,6 @@ const selectedTab = ref('tab1');
 
 
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 
 p {

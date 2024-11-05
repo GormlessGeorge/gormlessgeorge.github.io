@@ -1,0 +1,26 @@
+{
+    "mainScreen": {
+        "title": "Hello, <br /> my name is <span>George</span>",
+        "description": "I'm a <span>Fullstack Web Developer</span>, passionate about building intuitive and scalable web applications. From the visual front-end to the core back-end. I’m always exploring new technologies to bring fresh ideas to life. My goal is to make each project uniquely successful and impactful. Let's build something amazing together!"
+    },
+    "button": {
+        "contact": "Contact me"
+    },
+    "stackScreen": {
+        "title": "Tech <span>stack</span>",
+        "frontendDescr": "I work with a robust stack of frontend technologies. Starting with <span>JavaScript</span> for dynamic and interactive content, <span>TypeScript</span> adds typesafety and efficiency. <span>Vue.js</span> is my go-to for building user interfaces.<br><br><span>HTML</span> and <span>CSS</span> lay the foundation for structure and design, with <span>Sass</span> enhancing the maintainability and flexibility.<br><br> <span>Inertia.js</span> paired with Laravel simplifies single-page application development, while <span>Vite</span> ensures a fast and efficient build process.",
+        "backendDescr": "I have a solid foundation in backend technologies. While I have extensive experience with <span>Java</span> and <span>Kotlin</span>, my current focus is primarily on <span>PHP</span> and the <span>Laravel</span> framework, which I use extensively for most of my projects.<br><br><span>MySQL</span> serves as my primary database system, and I have a working knowledge of <span>PostgreSQL</span>, which I can utilize when specific project requirements call for it. <br><br>Additionally, I’m familiar with <span>RabbitMQ</span> for message queuing and <span>Redis</span> for caching.",
+        "toolsDescr": "<span>Figma</span> and <span>Photoshop</span> assist me in handling various design tasks. For coding, I rely on <span>Visual Studio Code</span> for lighter projects.<br><br> When it comes to more demanding tasks, I utilize <span>Intellij IDEA</span>, <span>WebStorm</span>, and <span>PHPStorm</span>, each tailored for specific programming languages and needs. <br><br> <span>Git</span> simplifies version control, making collaboration more efficient, while <span>Postman</span> is great for testing APIs.",
+        "more": "And more!"
+    },
+    "projectsScreen": {
+        "title": "Latest <span>projects</span>",
+        "firstProject": "Multi-page website for a restaurant. Contributed as a front-end developer, utilizing pure vanilla <span>JavaScript</span> to create a seamless and engaging user experience.",
+        "secondProject": "A simple yet functional landing page for English courses, featuring a basic user dashboard. Built to provide an intuitive learning experience, also using vanilla <span>JavaScript</span>.",
+        "thirdProject": "Single Page Application (SPA) for a local café with ordering functionality and integrated payment system. Built using <span>Vue</span>, <span>Laravel</span>, and <span>Inertia</span>. Utilizes SSR with Node."
+    },
+    "contactsScreen": {
+        "title": "Let's get in <span>touch</span>",
+        "description" : "Need some help, have an idea, or just want to chat? Don't hesitate to reach out using any of these:"
+    }
+}

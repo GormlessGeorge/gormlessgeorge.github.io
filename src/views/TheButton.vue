@@ -1,16 +1,28 @@
 <template>
   <button :class="store.currentColorClass" class="dynamic-button">
-    <slot></slot>
+    <transition name="fade" mode="out-in">
+      <p :key="t('button.contact')">{{ t('button.contact') }}</p>
+    </transition>
   </button>
 </template>
 <script setup lang="ts">
 import { usePortfolioStore } from '../store/portfolio-store';
-
+import { useI18n } from 'vue-i18n';
 const store = usePortfolioStore();
-
+const { t } = useI18n();
 </script>
 
 <style scoped lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 button {
   cursor: pointer;
   transition: all 1s;

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 export const usePortfolioStore = defineStore("counter", {
-  state: () => ({ isDarkTheme: true, activeSection: 0, currentColorClass: 'color-vite' }),
+  state: () => ({ isDarkTheme: true, activeSection: 0, currentColorClass: 'color-vite', locale: "en" }),
   getters: {
 
   },
@@ -8,7 +8,9 @@ export const usePortfolioStore = defineStore("counter", {
     toggleTheme() {
       this.isDarkTheme = !this.isDarkTheme
     },
-
+    switchLanguage() {
+      this.locale = this.locale === "en" ? "ru" : "en";
+    },
     moveUp() {
       this.activeSection++;
     },

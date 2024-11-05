@@ -1,29 +1,43 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia';
+import { createPinia, storeToRefs } from 'pinia';
+import { createI18n } from 'vue-i18n'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import App from './App.vue';
+import ru from './locales/ru.json';
+import en from './locales/en.json';
+import { usePortfolioStore } from './store/portfolio-store';
 import './style.css'
 import TheContainer from './views/TheContainer.vue';
 import TheButton from './views/TheButton.vue';
-import App from './App.vue';
 
-const x = 5;
-const y = 2;
-const z = x %y;
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const observer = new IntersectionObserver((entries) => {
-//         entries.forEach((entry) => {
-//             if (entry.isIntersecting) {
-//                 entry.target.classList.add('fade-in');
-//             }
-//         });
-//     });
 
-//     const stackScreen = document.querySelector('.stack__main_wrapper');
-//     const projectsScreen = document.querySelector('.projects__wrapper');
-//     observer.observe(stackScreen);
-//     observer.observe(projectsScreen);
-// });
+const app = createApp(App);
+const pinia = createPinia();
+app.use(pinia);
+pinia.use(piniaPluginPersistedstate);
+
+app.component('TheContainer', TheContainer);
+app.component('TheButton', TheButton);
+
+const store = usePortfolioStore();
+const {locale} = storeToRefs(store);
+
+const i18n = createI18n({
+    locale: locale.value,
+    fallbackLocale: 'ru',
+    messages: {
+        ru,
+        en
+    },
+    warnHtmlInMessage: 'off'
+});
+
+app.use(i18n);
+
+app.mount('#app');
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const observer = new IntersectionObserver((entries) => {
@@ -42,14 +56,3 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(el);
     });
 });
-
-
-const app = createApp(App);
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
-
-app.component('TheContainer', TheContainer);
-app.component('TheButton', TheButton);
-
-app.use(pinia);
-app.mount('#app');
