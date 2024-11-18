@@ -41,6 +41,11 @@ button {
     height: 45px;
     width: 150px;
   }
+  @include phone-adp {
+    font-size: 14px;
+    height: 40px;
+    width: 140px;
+  }
 
   @include tablet-landscape-adp {
     margin: 25px auto 0 auto;

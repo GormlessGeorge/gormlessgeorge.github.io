@@ -179,7 +179,7 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
     }
 
     @include phone-adp {
-      font-size: 1rem;
+      font-size: 14px;
     }
   }
 
@@ -209,25 +209,11 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
       text-decoration: none;
 
       &:hover {
-        text-shadow: 5px 5px 20px var(--hover-color);
+        text-shadow: 5px 5px 30px var(--hover-color);
       }
     }
   }
 
-  // &__arrow {
-  //   @include desktop-adp {
-  //     width: 28px;
-  //     height: auto;
-  //   }
-
-  //   @include tablet-landscape-adp {
-  //     width: 26px;
-  //   }
-
-  //   path {
-  //     fill: var(--primary-color);
-  //   }
-  // }
 
 }
 

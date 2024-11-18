@@ -17,7 +17,7 @@
             fill="white" />
         </svg>
       </a>
-      <a href="http://t.me/GormlessGeorge">
+      <a href="https://www.linkedin.com/in/george-kulaev-b41964335/">
         <svg :class="store.currentColorClass" width="32" height="32" viewBox="0 0 32 32" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path

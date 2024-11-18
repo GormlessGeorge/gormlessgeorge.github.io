@@ -58,7 +58,7 @@ const formattedThirdProject = computed(() => { return t('projectsScreen.thirdPro
 .projects {
     display: flex;
     align-items: center;
-    height: 100svh;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
 

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <a class="header__logo" href="/">GG</a>
+    <p class="header__logo">GG</p>
     <div :class="store.currentColorClass" class="header__light"></div>
     <div class="header__icons">
       <div class="header__icon">
@@ -56,6 +56,7 @@ const switchLanguage = () => {
   justify-content: space-between;
 
   &__logo {
+    cursor: default;
     transition: color 1s;
     display: block;
     margin-top: 35px;

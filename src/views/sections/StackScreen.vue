@@ -170,11 +170,10 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100svh;
+  height: 100vh;
   overflow: hidden;
 
   &__main_wrapper {
-    // transform: translateY(100px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -195,7 +194,7 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     display: flex;
     flex-direction: column;
     opacity: 0;
-    transform: translateY(300px);
+    transform: translateY(100px);
     @include tablet-landscape-adp {
       width: 400px;
     }
@@ -340,7 +339,7 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     width: 50%;
     position: relative;
     opacity: 0;
-    transform: translateY(300px);
+    transform: translateY(100px);
     @include tablet-landscape-adp {
       width: unset;
     }
@@ -435,7 +434,7 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     }
 
     @include phone-adp {
-      font-size: 0.875rem;
+      font-size: 12px;
       line-height: 28px;
     }
 
