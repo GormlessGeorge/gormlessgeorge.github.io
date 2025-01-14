@@ -3,6 +3,7 @@
     <TheHeader></TheHeader>
     <TheContainer>
       <div class="main__wrapper">
+
         <div class="main__about">
           <transition name="fade" mode="out-in">
             <h1 class="main__title" :key="formattedTitle" v-html="formattedTitle" :class="store.currentColorClass"></h1>
@@ -11,11 +12,10 @@
             <p class="main__text" :key="formattedDescr" v-html="formattedDescr" :class="store.currentColorClass"></p>
           </transition>
           <TheButton @click="scrollToSection(3)">{{ t("button.contact") }}</TheButton>
-
         </div>
 
         <div :class="store.currentColorClass" class="main__photo">
-          <img src="@/assets/img/2.png" alt="dev_photo" />
+          <img src="@/assets/img/2.png" alt="photo" />
         </div>
       </div>
     </TheContainer>
@@ -23,14 +23,14 @@
 </template>
 
 <script setup lang="ts">
-import TheHeader from "../TheHeader.vue";
+import TheHeader from "../components/TheHeader.vue";
 import { usePortfolioStore } from '../../store/portfolio-store';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const store = usePortfolioStore();
 
-const props = defineProps<{
+defineProps<{
   scrollToSection: (section: number) => void;
 }>();
 
@@ -57,6 +57,7 @@ const formattedDescr = computed(() => { return t('mainScreen.description'); });
       align-items: center;
       gap: 20px;
     }
+
     @include phone-adp {
       margin-bottom: 50px;
     }
@@ -64,27 +65,24 @@ const formattedDescr = computed(() => { return t('mainScreen.description'); });
 
   &__about {
     margin-left: 50px;
-    display: flex;
-    flex-direction: column;
-
     @include tablet-landscape-adp {
       margin-left: 0;
     }
   }
 
   &__title {
-    font-size: 1.25rem;
+    font-size: 20px;
     color: var(--text-color);
     font-weight: 500;
 
     @include text-lh;
 
     @include desktop-adp {
-      font-size: 1.125rem;
+      font-size: 18px;
     }
 
     @include tablet-landscape-adp {
-      font-size: 1rem;
+      font-size: 16px;
       text-align: center;
 
       br {
@@ -133,11 +131,11 @@ const formattedDescr = computed(() => { return t('mainScreen.description'); });
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 24.6875rem;
-    width: 24.6875rem;
-    border: solid .0938rem var(--primary-color);
+    height: 395px;
+    width: 395px;
+    border: solid 1.5px var(--primary-color);
     background-color: var(--background-color);
-    box-shadow: .1875rem .25rem .75rem 0 var(--hover-color);
+    box-shadow: 3px 4px 12px 0 var(--hover-color);
 
     @include desktop-adp {
       height: 320px;

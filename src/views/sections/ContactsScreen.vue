@@ -38,6 +38,7 @@
           </div>
 
         </div>
+
         <div :class="store.currentColorClass" class="contacts__light"></div>
         <p class="contacts__descr">{{t("contactsScreen.description")}}</p>
         <div class="contacts__social">
@@ -102,7 +103,6 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
 
   &__wrapper {
     opacity: 0;
-    transform: translateY(200px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -119,7 +119,7 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
     filter: blur(80px);
 
     @include phone-adp {
-      font-size: 1rem;
+      font-size: 16px;
     }
   }
 
@@ -171,7 +171,7 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
   &__descr {
     width: 60%;
     margin-top: 30px;
-    font-size: 1.25rem;
+    font-size: 20px;
     @include text-lh;
 
     @include tablet-landscape-adp {
@@ -195,11 +195,11 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
   }
 
   &__link {
-    font-size: 1.125rem;
+    font-size: 18px;
     @include text-lh;
 
     @include phone-adp {
-      font-size: 1rem;
+      font-size: 16px;
     }
 
     a {
@@ -251,9 +251,7 @@ const formattedTitle = computed(() => { return t('contactsScreen.title'); });
 
 }
 
-// @media (max-width:960px) {
 
-//   }
 @keyframes wave {
   0% {
     // transform: translateX(100px);

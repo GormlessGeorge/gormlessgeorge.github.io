@@ -5,7 +5,7 @@ import pxtorom from '@minko-fe/postcss-pxtorem'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [vue()],
+  plugins: [vue(),],
   css: {
     postcss: {
       plugins: [
@@ -32,7 +32,3 @@ export default defineConfig({
   },
 });
 
-// @import "./src/styles/_animations.scss";
-// @import "./src/styles/_variables.scss";
-// @import "./src/styles/_mixins.scss";
-// @import "./src/styles/_helpers.scss";

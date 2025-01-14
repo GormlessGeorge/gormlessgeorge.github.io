@@ -6,7 +6,7 @@
   </button>
 </template>
 <script setup lang="ts">
-import { usePortfolioStore } from '../store/portfolio-store';
+import { usePortfolioStore } from '../../store/portfolio-store.ts';
 import { useI18n } from 'vue-i18n';
 const store = usePortfolioStore();
 const { t } = useI18n();
@@ -24,12 +24,13 @@ const { t } = useI18n();
 }
 
 button {
+  display: block;
   cursor: pointer;
   transition: all 1s;
   margin-top: 25px;
-  height: 3.375rem;
-  width: 11.875rem;
-  font-size: 1.25rem;
+  height: 54px;
+  width: 190px;
+  font-size: 20px;
   font-weight: 700;
   color: #fcfcfc;
   border: none;
@@ -37,10 +38,11 @@ button {
   color: var(--button-text-color);
 
   @include desktop-adp {
-    font-size: 1.125rem;
+    font-size: 18px;
     height: 45px;
     width: 150px;
   }
+
   @include phone-adp {
     font-size: 14px;
     height: 40px;

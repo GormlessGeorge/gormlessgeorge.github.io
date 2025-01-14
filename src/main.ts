@@ -7,8 +7,8 @@ import ru from './locales/ru.json';
 import en from './locales/en.json';
 import { usePortfolioStore } from './store/portfolio-store';
 import './style.css'
-import TheContainer from './views/TheContainer.vue';
-import TheButton from './views/TheButton.vue';
+import TheContainer from './views/components/TheContainer.vue';
+import TheButton from './views/components/TheButton.vue';
 
 
 

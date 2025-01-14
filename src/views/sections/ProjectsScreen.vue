@@ -14,25 +14,25 @@
 
             <div class="projects__wrapper fade-in" :class="store.currentColorClass" data-fade-in-time="0.6s">
                 <div class="projects__project" :class="store.currentColorClass">
-                    <div class="projects__img">
-                        <img loading="eager" src="../../assets/img/prj/pearl2.png" alt="project_image">
+                    <div>
+                        <img class="projects__project-img" src="../../assets/img/prj/pearl2.png" alt="project_image">
                     </div>
-                    <p class="projects__descr" v-html="formattedFirstProject">
+                    <p class="projects__project-descr" v-html="formattedFirstProject">
                     </p>
 
                 </div>
                 <div class="projects__project fade-in" data-fade-in-time="0.8s">
-                    <div class="projects__img">
-                        <img loading="eager" src="../../assets/img/prj/dsp.png" alt="project_image">
+                    <div>
+                        <img class="projects__project-img" src="../../assets/img/prj/dsp.png" alt="project_image">
                     </div>
-                    <p class="projects__descr" v-html="formattedSecondProject">
+                    <p class="projects__project-descr" v-html="formattedSecondProject">
                     </p>
                 </div>
                 <div class="projects__project fade-in" data-fade-in-time="1s">
-                    <div class="projects__img">
-                        <img loading="eager" src="../../assets/img/prj/owl.png" alt="project_image">
+                    <div class="projects__project-img">
+                        <img class="projects__project-img" src="../../assets/img/prj/owl.png" alt="project_image">
                     </div>
-                    <p class="projects__descr" v-html="formattedThirdProject">
+                    <p class="projects__project-descr" v-html="formattedThirdProject">
                     </p>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import {computed} from 'vue';
+import { computed } from 'vue';
 import { usePortfolioStore } from '../../store/portfolio-store';
 import { useI18n } from 'vue-i18n';
 const store = usePortfolioStore();
@@ -74,14 +74,15 @@ const formattedThirdProject = computed(() => { return t('projectsScreen.thirdPro
             gap: 20px;
             align-items: center;
             justify-content: center;
+
             @include phone-adp {
-                gap:10px;
+                gap: 10px;
             }
         }
 
         &-icon {
-            width: 39px;
-            height: 39px;
+            width: 40px;
+            height: 40px;
             align-self: center;
             margin-top: 5px;
 
@@ -113,9 +114,9 @@ const formattedThirdProject = computed(() => { return t('projectsScreen.thirdPro
     }
 
     &__wrapper {
-        opacity: 0;
         display: flex;
         justify-content: space-between;
+        opacity: 0;
 
         @include tablet-landscape-adp {
             flex-direction: column;
@@ -147,44 +148,44 @@ const formattedThirdProject = computed(() => { return t('projectsScreen.thirdPro
         @include phone-adp {
             flex-direction: column;
         }
-    }
 
-    &__descr {
-        font-size: 1.25rem;
-        font-weight: 300;
-        @include text-lh;
-        @include desktop-adp {
-            font-size: 1.125rem;
+        &-descr {
+            font-size: 20px;
+            font-weight: 300;
+            @include text-lh;
+
+            @include desktop-adp {
+                font-size: 18px;
+            }
+
+            @include tablet-landscape-adp {
+                font-size: 16px;
+            }
+
+            @include tablet-adp {
+                font-size: 14px;
+            }
+
+            @include phone-adp {
+                display: none;
+            }
+
+            span {
+                color: var(--primary-color);
+                font-weight: 600;
+            }
         }
 
-        @include tablet-landscape-adp {
-            font-size: 1rem;
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+
+            @include tablet-landscape-adp {
+                width: 260px;
+                height: auto;
+            }
         }
-
-        @include tablet-adp {
-            font-size: 0.875rem;
-        }
-
-        @include phone-adp {
-            display: none;
-        }
-
-        span {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-    }
-
-}
-
-div img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-
-    @include tablet-landscape-adp {
-        width: 260px;
-        height: auto;
     }
 }
 </style>

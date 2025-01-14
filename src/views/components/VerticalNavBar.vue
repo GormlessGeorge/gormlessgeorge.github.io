@@ -9,15 +9,16 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import { usePortfolioStore } from '../store/portfolio-store';
+import { defineProps } from 'vue';
+import { usePortfolioStore } from '../../store/portfolio-store.ts';
 const store = usePortfolioStore();
 
-const props = defineProps<{
+defineProps<{
   offsets: number[];
   activeSection: number;
   scrollToSection: (section: number) => void;
 }>();
+
 </script>
 
 <style scoped lang="scss">
@@ -31,6 +32,7 @@ nav {
   @include phone-adp {
     display: none;
   }
+
   ul {
     padding: 0;
     display: flex;
@@ -42,8 +44,8 @@ nav {
     cursor: pointer;
     transition: all 0.6s ease;
     transform: rotate(45deg);
-    height: 13px;
-    width: 13px;
+    height: 14px;
+    width: 14px;
     border: solid 3px var(--text-color);
     list-style: none;
 

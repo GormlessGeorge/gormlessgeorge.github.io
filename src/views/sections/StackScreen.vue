@@ -1,27 +1,27 @@
 <template>
   <section class="stack" id="stack">
     <TheContainer>
-      <div class="stack__main_wrapper">
-        <div class="stack__tabs_wrapper fade-in" data-fade-in-time="0.6s">
+      <div class="stack__main-wrapper">
+        <div class="stack__tabs-wrapper fade-in" data-fade-in-time="0.6s">
           <div class="stack__tabs">
-            <div class="stack__tab_title" @click="selectedTab = 'tab1'"
-              :class="{ 'stack__tab_title-active': selectedTab === 'tab1', [currentColorClass]: selectedTab === 'tab1' }">
+            <div class="stack__tab-title" @click="selectedTab = 'tab1'"
+              :class="{ 'stack__tab-title_active': selectedTab === 'tab1', [currentColorClass]: selectedTab === 'tab1' }">
               Frontend</div>
             <p class="stack__delimiter"
-              :class="{ 'stack__delimiter-active': selectedTab === 'tab1' || selectedTab === 'tab2', [currentColorClass]: selectedTab === 'tab1' || selectedTab === 'tab2' }">
+              :class="{ 'stack__delimiter_active': selectedTab === 'tab1' || selectedTab === 'tab2', [currentColorClass]: selectedTab === 'tab1' || selectedTab === 'tab2' }">
               |</p>
-            <div class="stack__tab_title" @click="selectedTab = 'tab2'"
-              :class="{ 'stack__tab_title-active': selectedTab === 'tab2', [currentColorClass]: selectedTab === 'tab2' }">
+            <div class="stack__tab-title" @click="selectedTab = 'tab2'"
+              :class="{ 'stack__tab-title_active': selectedTab === 'tab2', [currentColorClass]: selectedTab === 'tab2' }">
               Backend</div>
             <p class="stack__delimiter"
-              :class="{ 'stack__delimiter-active': selectedTab === 'tab2' || selectedTab === 'tab3', [currentColorClass]: selectedTab === 'tab2' || selectedTab === 'tab3' }">
+              :class="{ 'stack__delimiter_active': selectedTab === 'tab2' || selectedTab === 'tab3', [currentColorClass]: selectedTab === 'tab2' || selectedTab === 'tab3' }">
               |</p>
-            <div class="stack__tab_title" @click="selectedTab = 'tab3'"
-              :class="{ 'stack__tab_title-active': selectedTab === 'tab3', [currentColorClass]: selectedTab === 'tab3' }">
+            <div class="stack__tab-title" @click="selectedTab = 'tab3'"
+              :class="{ 'stack__tab-title_active': selectedTab === 'tab3', [currentColorClass]: selectedTab === 'tab3' }">
               Tools</div>
           </div>
 
-          <div class="stack__tab_content">
+          <div class="stack__tab-content">
             <transition name="fade" mode="out-in">
               <div v-if="selectedTab === 'tab1'" key="tab1" class="stack__tab">
                 <div class="stack__icon" @click="store.applyJsColor">
@@ -163,6 +163,7 @@ const formattedTitle = computed(() => { return t('stackScreen.title'); });
 const formattedFrontendDescr = computed(() => { return t('stackScreen.frontendDescr'); });
 const formattedBackendDescr = computed(() => { return t('stackScreen.backendDescr'); });
 const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr'); });
+
 </script>
 <style scoped lang="scss">
 .stack {
@@ -171,9 +172,9 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow: clip;
 
-  &__main_wrapper {
+  &__main-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -181,15 +182,15 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     @include tablet-landscape-adp {
       flex-direction: column-reverse;
       align-items: center;
-      gap: 1.875rem;
+      gap: 30px;
     }
 
     @include phone-adp {
-      gap: 1rem;
+      gap: 16px;
     }
   }
 
-  &__tabs_wrapper {
+  &__tabs-wrapper {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -216,7 +217,7 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     }
   }
 
-  &__tab_title {
+  &__tab-title {
     align-content: center;
     transition: all 1s;
     cursor: pointer;
@@ -224,23 +225,23 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     color: var(--text-color);
     text-align: center;
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 20px;
 
     @include desktop-adp {
-      font-size: 1.125rem;
+      font-size: 18px;
     }
 
     @include tablet-landscape-adp {
-      font-size: 1rem;
+      font-size: 16px;
       width: 105px;
     }
 
     @include phone-adp {
-      font-size: 0.875rem;
+      font-size: 14px;
       width: 80px;
     }
 
-    &-active {
+    &_active {
       transition: all 1s;
       color: var(--primary-color);
     }
@@ -251,7 +252,7 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     color: var(--text-color);
     transition: all 1s;
 
-    &-active {
+    &_active {
       transition: all 1s;
       color: var(--primary-color);
     }
@@ -330,7 +331,7 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     }
 
     @include phone-adp {
-      font-size: .625rem;
+      font-size: 10px;
     }
 
   }
@@ -412,18 +413,18 @@ const formattedToolsDescr = computed(() => { return t('stackScreen.toolsDescr');
     margin: 0 auto;
     margin-top: 40px;
     width: 470px;
-    line-height: 2.2rem;
+    line-height: 35.2px;
     font-weight: 300;
-    font-size: 1.25rem;
+    font-size: 20px;
     color: var(--text-color);
 
     @include desktop-adp {
-      font-size: 1.125rem;
+      font-size: 18px;
       width: 450px;
     }
 
     @include tablet-landscape-adp {
-      font-size: 1rem;
+      font-size: 16px;
       width: 90%;
       margin-top: 0;
       text-align: center;

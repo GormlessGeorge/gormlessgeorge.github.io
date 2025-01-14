@@ -1,22 +1,23 @@
 <template>
   <VerticalNavBar :offsets="offsets" :activeSection="activeSection" :scrollToSection="scrollToSection" />
   <LinksSidebar />
-  <MainScreen :scrollToSection="scrollToSection" class="fullpage"></MainScreen>
-  <StackScreen class="fullpage"></StackScreen>
-  <ProjectsScreen class="fullpage"></ProjectsScreen>
-  <ContactsScreen class="fullpage"></ContactsScreen>
+  <MainScreen :scrollToSection="scrollToSection" class="fullpage"/>
+  <StackScreen class="fullpage"/>
+  <ProjectsScreen class="fullpage"/>
+  <ContactsScreen class="fullpage"/>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import LinksSidebar from "./views/LinksSidebar.vue";
-import VerticalNavBar from "./views/VerticalNavBar.vue";
+import { usePortfolioStore } from './store/portfolio-store';
+import { storeToRefs } from 'pinia';
+import LinksSidebar from "./views/components/LinksSidebar.vue";
+import VerticalNavBar from "./views/components/VerticalNavBar.vue";
 import MainScreen from "./views/sections/MainScreen.vue";
 import StackScreen from "./views/sections/StackScreen.vue";
 import ProjectsScreen from './views/sections/ProjectsScreen.vue';
 import ContactsScreen from "./views/sections/ContactsScreen.vue";
-import { usePortfolioStore } from './store/portfolio-store';
-import { storeToRefs } from 'pinia'
+
 const store = usePortfolioStore();
 
 const inMove = ref(false);
@@ -27,9 +28,6 @@ const { activeSection } = storeToRefs(store);
 const offsets = ref([]);
 const touchStartY = ref(0);
 
-onMounted(() => {
-  document.documentElement.setAttribute('data-theme', store.isDarkTheme ? 'dark' : 'light');
-});
 
 const calculateSectionOffsets = () => {
   let sections = document.getElementsByTagName('section');
@@ -98,17 +96,16 @@ const scrollToSection = (id, force = false) => {
 
 
 onMounted(() => {
+  document.documentElement.setAttribute('data-theme', store.isDarkTheme ? 'dark' : 'light');
   calculateSectionOffsets();
   window.addEventListener('DOMMouseScroll', handleMouseWheelDOM); 
   window.addEventListener('mousewheel', handleMouseWheel, { passive: false }); 
-
 });
 
 onUnmounted(() => {
   window.removeEventListener('DOMMouseScroll', handleMouseWheelDOM); 
   window.removeEventListener('mousewheel', handleMouseWheel, { passive: false }); 
-
 });
 </script>
 
-<style scoped lang="scss"></style>
+
